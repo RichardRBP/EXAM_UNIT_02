@@ -1,0 +1,10 @@
+INSERT INTO generos (id, nombre) VALUES(1, 'Acción');
+INSERT INTO generos (id, nombre) VALUES(2, 'Comedia');
+INSERT INTO generos (id, nombre) VALUES(3, 'Drama');
+INSERT INTO generos (id, nombre) VALUES(4, 'Aventuras');
+INSERT INTO generos (id, nombre) VALUES(5, 'Ciencia Ficción');
+INSERT INTO generos (id, nombre) VALUES(6, 'Fantasía');
+INSERT INTO generos (id, nombre) VALUES(7, 'Musical');
+INSERT INTO generos (id, nombre) VALUES(8, 'Suspenso');
+INSERT INTO generos (id, nombre) VALUES(9, 'Terror');
+INSERT INTO generos (id, nombre) VALUES(10, 'Futuristas');
