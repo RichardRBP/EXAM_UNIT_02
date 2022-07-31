@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.ingenieriaweb.springboot.app.models.dao.IGeneroDao;
-import com.ingenieriaweb.springboot.app.models.entity.Genero;
+import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 
 @Controller
 @SessionAttributes("genero")
@@ -33,7 +33,7 @@ public class GeneroController {
 	@RequestMapping(value = "/formGen")
 	public String crear(Map<String, Object> model) {
 
-		Genero genero = new Genero();
+		Genero2 genero = new Genero2();
 		model.put("genero", genero);
 		model.put("titulo", "Formulario de Generos");
 		return "formGen";
@@ -42,7 +42,7 @@ public class GeneroController {
 	@RequestMapping(value="/formGen/{id}")
 	public String editar(@PathVariable(value="id") Long id, Map<String, Object> model) {
 		
-		Genero genero = null;
+		Genero2 genero = null;
 		
 		if(id > 0) {
 			genero = generoDao.findOne(id);
@@ -56,7 +56,7 @@ public class GeneroController {
 	
 	
 	@RequestMapping(value = "/formGen", method = RequestMethod.POST)
-	public String guardar(@Valid Genero genero, BindingResult result, Model model, SessionStatus status) {
+	public String guardar(@Valid Genero2 genero, BindingResult result, Model model, SessionStatus status) {
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Genero");
 			return "form";

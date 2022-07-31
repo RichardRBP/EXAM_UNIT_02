@@ -43,7 +43,7 @@
 			<tbody>
 				<tr th:each="genero: ${generos}">
 					<td th:text="${genero.id}"></td>
-					<td th:text="${genero.nombre}"></td>
+					<td th:text="${genero.genero}"></td>
 					<td><a class="btn btn-primary btn-xs" th:href="@{/formGen/} + ${genero.id}" th:text="'editar'"></a></td>
 					<td><a class="btn btn-danger btn-xs" th:href="@{/eliminarGen/} + ${genero.id}" th:text="'eliminar'" onclick="return confirm('Está seguro que desea eliminar el género?');"></a></td>
 				</tr>
