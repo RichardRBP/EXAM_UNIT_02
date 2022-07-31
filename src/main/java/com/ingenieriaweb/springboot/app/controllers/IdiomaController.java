@@ -54,7 +54,7 @@ public class IdiomaController {
 		return "formIdiom";
 	}
 	
-	
+	 
 	@RequestMapping(value = "/formIdiom", method = RequestMethod.POST)
 	public String guardar(@Valid Idioma idioma, BindingResult result, Model model, SessionStatus status) {
 		if(result.hasErrors()) {
