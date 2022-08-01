@@ -1,22 +1,15 @@
 package com.ingenieriaweb.springboot.app.models.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
 
 @Entity
 @Table(name = "fichas")
@@ -25,10 +18,19 @@ public class Ficha implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
-    private String fechaAlquiler;
-    @NotEmpty
-    private String fechaEntrega;
+
+    @NotNull
+    @Column(name = "fecha_alquiler")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date fechaAlquiler;
+
+    @NotNull
+    @Column(name = "fecha_entrega")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date fechaEntrega;
+
     @NotNull
     private Double costo;
     @NotEmpty
@@ -60,22 +62,22 @@ public class Ficha implements Serializable {
     }
 
 
-    public String getFechaAlquiler() {
+    public Date getFechaAlquiler() {
         return fechaAlquiler;
     }
 
 
-    public void setFechaAlquiler(String fechaAlquiler) {
+    public void setFechaAlquiler(Date fechaAlquiler) {
         this.fechaAlquiler = fechaAlquiler;
     }
 
 
-    public String getFechaEntrega() {
+    public Date getFechaEntrega() {
         return fechaEntrega;
     }
 
 
-    public void setFechaEntrega(String fechaEntrega) {
+    public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 

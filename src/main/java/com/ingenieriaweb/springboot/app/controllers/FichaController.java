@@ -28,108 +28,107 @@ import com.ingenieriaweb.springboot.app.models.entity.Video;
 import com.ingenieriaweb.springboot.app.models.service.IClienteService;
 
 
-
 @Controller
 @RequestMapping("/ficha")
 @SessionAttributes("ficha")
 public class FichaController {
 
-	@Autowired
-	private IClienteService clienteService;
-	
-	private final Logger log = LoggerFactory.getLogger(getClass());
-	
-	@GetMapping("/ver/{id}")
-	public String ver(@PathVariable(value="id") Long id, 
-			Model model,
-			RedirectAttributes flash) {
-		Ficha ficha = clienteService.findFichaById(id);
-		
-		if(ficha == null) {
-			flash.addFlashAttribute("error", "La Ficha no existe en la base de datos!");
-			return "redirect:/listar";
-		}
-		
-		model.addAttribute("ficha", ficha);
-		model.addAttribute("titulo", "Ficha: ".concat(ficha.getComentarios()));
-		
-		return "ficha/ver";
-	}
+    @Autowired
+    private IClienteService clienteService;
 
-	@GetMapping("/form/{clienteId}")
-	public String crear(@PathVariable(value = "clienteId") Long clienteId, Map<String, Object> model,
-			RedirectAttributes flash) {
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
-		Cliente cliente = clienteService.findOne(clienteId);
+    @GetMapping("/ver/{id}")
+    public String ver(@PathVariable(value = "id") Long id,
+                      Model model,
+                      RedirectAttributes flash) {
+        Ficha ficha = clienteService.findFichaById(id);
 
-		if (cliente == null) {
-			flash.addFlashAttribute("error", "El cliente no existe en la base de datos");
-			return "redirect:/listar";
-		}
+        if (ficha == null) {
+            flash.addFlashAttribute("error", "La Ficha no existe en la base de datos!");
+            return "redirect:/cliente/listar";
+        }
 
-		Ficha ficha = new Ficha();
-		ficha.setCliente(cliente);
+        model.addAttribute("ficha", ficha);
+        model.addAttribute("titulo", "Ficha: ".concat(ficha.getComentarios()));
 
-		model.put("ficha", ficha);
-		model.put("titulo", "Crear Ficha");
+        return "ficha/ver";
+    }
 
-		return "ficha/form";
-	}
+    @GetMapping("/form/{clienteId}")
+    public String crear(@PathVariable(value = "clienteId") Long clienteId, Map<String, Object> model,
+                        RedirectAttributes flash) {
 
-	@GetMapping(value = "/cargar-videos/{term}", produces = { "application/json" })
-	public @ResponseBody List<Video> cargarVideos(@PathVariable String term) {
-		return clienteService.findByTitulo(term);
-	}
-	
-	@PostMapping("/form")
-	public String guardar(@Valid Ficha ficha, 
-			BindingResult result, Model model,
-			@RequestParam(name = "item_id[]", required = false) Long[] itemId,
-			RedirectAttributes flash,
-			SessionStatus status) {
-		
-		if (result.hasErrors()) {
-			model.addAttribute("titulo", "Crear Ficha");
-			return "ficha/form";
-		}
+        Cliente cliente = clienteService.findOne(clienteId);
 
-		if (itemId == null || itemId.length == 0) {
-			model.addAttribute("titulo", "Crear Ficha");
-			model.addAttribute("error", "Error: La ficha NO puede no tener líneas!");
-			return "ficha/form";
-		}
-		
-		for (int i = 0; i < itemId.length; i++) {
-			Video video = clienteService.findVideoById(itemId[i]);
+        if (cliente == null) {
+            flash.addFlashAttribute("error", "El cliente no existe en la base de datos");
+            return "redirect:/cliente/listar";
+        }
 
-			DetalleFicha linea = new DetalleFicha();
-			linea.setVideo(video);
-			ficha.addDetalleFicha(linea);
+        Ficha ficha = new Ficha();
+        ficha.setCliente(cliente);
 
-			log.info("ID: " + itemId[i].toString() );
-		}
+        model.put("ficha", ficha);
+        model.put("titulo", "Crear Ficha");
 
-		clienteService.saveFicha(ficha);
-		status.setComplete();
+        return "ficha/form";
+    }
 
-		flash.addFlashAttribute("success", "Ficha creada con éxito!");
+    @GetMapping(value = "/cargar-videos/{term}", produces = {"application/json"})
+    public @ResponseBody List<Video> cargarVideos(@PathVariable String term) {
+        return clienteService.findByTitulo(term);
+    }
 
-		return "redirect:/ver/" + ficha.getCliente().getId();
-	}
-	
-	@GetMapping("/eliminarFicha/{id}")
-	public String eliminar(@PathVariable(value="id") Long id, RedirectAttributes flash) {
-		
-		Ficha ficha = clienteService.findFichaById(id);
-		
-		if(ficha != null) {
-			clienteService.deleteFicha(id);
-			flash.addFlashAttribute("success", "Ficha eliminada con éxito!");
-			return "redirect:/ver/" + ficha.getCliente().getId();
-		}
-		flash.addFlashAttribute("error", "La ficha no existe en la base de datos, no se pudo eliminar!");
-		
-		return "redirect:/listar";
-	}
+    @PostMapping("/form")
+    public String guardar(@Valid Ficha ficha, BindingResult result,
+                          Model model, @RequestParam(name = "item_id[]", required = false) Long[] itemId,
+                          @RequestParam(name = "cantidad[]", required = false) Integer[] cantidad,
+                          RedirectAttributes flash,
+                          SessionStatus status) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("titulo", "Crear Ficha");
+            return "ficha/form";
+        }
+
+        if (itemId == null || itemId.length == 0) {
+            model.addAttribute("titulo", "Crear Ficha");
+            model.addAttribute("error", "Error: La ficha NO puede no tener líneas!");
+            return "ficha/form";
+        }
+
+        for (int i = 0; i < itemId.length; i++) {
+            Video video = clienteService.findVideoById(itemId[i]);
+
+            DetalleFicha linea = new DetalleFicha();
+            linea.setVideo(video);
+            ficha.addDetalleFicha(linea);
+
+            log.info("ID: " + itemId[i].toString());
+        }
+
+        clienteService.saveFicha(ficha);
+        status.setComplete();
+
+        flash.addFlashAttribute("success", "Ficha creada con éxito!");
+
+        return "redirect:/cliente/ver/" + ficha.getCliente().getId();
+    }
+
+    @GetMapping("/eliminarFicha/{id}")
+    public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+
+        Ficha ficha = clienteService.findFichaById(id);
+
+        if (ficha != null) {
+            clienteService.deleteFicha(id);
+            flash.addFlashAttribute("success", "Ficha eliminada con éxito!");
+            return "redirect:/cliente/ver/" + ficha.getCliente().getId();
+        }
+        flash.addFlashAttribute("error", "La ficha no existe en la base de datos, no se pudo eliminar!");
+
+        return "redirect:/cliente/listar";
+    }
 
 }
