@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
+import com.ingenieriaweb.springboot.app.models.entity.DetalleFicha;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.entity.Ficha;
@@ -50,4 +51,9 @@ public interface IClienteService {
 
 	public void saveVideo(Video video);
 
+	public void deleteV(Long id);
+
+	public DetalleFicha findOneFicha(Long id);
+
+	public List<Idioma> findAllI();
 }

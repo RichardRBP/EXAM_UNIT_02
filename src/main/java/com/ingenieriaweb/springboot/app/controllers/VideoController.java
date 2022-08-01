@@ -26,6 +26,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ingenieriaweb.springboot.app.models.entity.DetalleFicha;
 import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 import com.ingenieriaweb.springboot.app.models.service.IClienteService;
@@ -107,6 +108,42 @@ public class VideoController {
 	}
 
 
+	@RequestMapping(value = "/formE/{id}")
+	public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 
+		Video video = null;
+
+		if (id > 0) {
+			video = videoService.findOneV(id);
+			if (video == null) {
+				flash.addFlashAttribute("error", "El ID del video no existe en la BBDD!");
+				return "redirect:/video/listar";
+			}
+		} else {
+			flash.addFlashAttribute("error", "El ID del video no puede ser cero!");
+			return "redirect:/video/listar";
+		}
+		model.put("video", video);
+		model.put("titulo", "Editar Video");
+		return "video/form";
+	}
+
+	@RequestMapping(value = "/eliminar/{id}")
+	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+
+		if (id > 0) {
+			Video video = videoService.findOneV(id);
+			
+			
+			videoService.deleteV(id);
+			flash.addFlashAttribute("success", "Video eliminado con éxito!");
+			
+			if (uploadFileService.delete(video.getImagenPortada())) {
+				//flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " eliminada con exito!");
+			}
+
+		}
+		return "redirect:/video/listar";
+	}
 
 }

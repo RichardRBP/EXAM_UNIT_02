@@ -29,7 +29,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
+import com.ingenieriaweb.springboot.app.models.entity.Idioma;
 import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
+import com.ingenieriaweb.springboot.app.models.entity.Video;
 import com.ingenieriaweb.springboot.app.models.service.IClienteService;
 import com.ingenieriaweb.springboot.app.models.service.IUploadFileService;
 import com.ingenieriaweb.springboot.app.util.paginator.PageRender;
@@ -98,7 +100,7 @@ public class ClienteController {
 		return "cliente/form";
 	}
 
-	@RequestMapping(value = "/form/{id}")
+	@RequestMapping(value = "/formE/{id}")
 	public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 
 		Cliente cliente = null;
@@ -193,5 +195,27 @@ public class ClienteController {
 
 		return "cliente/form";
 	}
+	@GetMapping("/asignarIdioma/{idVideo}")
+	public String asignarIdioma(@PathVariable(value = "idVideo") Long idVideo, Map<String, Object> model,
+			RedirectAttributes flash) {
+
+		Video video = clienteService.findOneV(idVideo);
+
+		if (video == null) {
+			flash.addFlashAttribute("error", "el video no existe en la base de datos");
+			return "redirect:/video/listar";
+		}
+
+		//Idioma idioma = new Idioma();
+		//cliente.setUrbanizacion(video);
+		List<Idioma> idiomas = clienteService.findAllI();
+
+		model.put("cliente", video);
+		model.put("idiomas", idiomas);
+		model.put("titulo", "Seleccionar Idioma");
+
+		return "video/idioma";
+	}
+
 
 }

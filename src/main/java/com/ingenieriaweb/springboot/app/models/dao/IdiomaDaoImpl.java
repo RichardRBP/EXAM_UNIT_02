@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ingenieriaweb.springboot.app.models.entity.Idioma;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 @Repository
-public class IdiomaDaoImpl implements IIdiomaDao{
+public class IdiomaDaoImpl {
 	/*@PersistenceContext
 	private EntityManager idi;
 

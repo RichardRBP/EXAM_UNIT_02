@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ingenieriaweb.springboot.app.models.dao.IClienteDao;
+import com.ingenieriaweb.springboot.app.models.dao.IDetalleFichaDao;
 import com.ingenieriaweb.springboot.app.models.dao.IFichaDao;
 import com.ingenieriaweb.springboot.app.models.dao.IGeneroDao;
+import com.ingenieriaweb.springboot.app.models.dao.IIdiomaDao;
 import com.ingenieriaweb.springboot.app.models.dao.IUrbanizacionDao;
 import com.ingenieriaweb.springboot.app.models.dao.IVideoDao;
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
+import com.ingenieriaweb.springboot.app.models.entity.DetalleFicha;
 import com.ingenieriaweb.springboot.app.models.entity.Ficha;
 import com.ingenieriaweb.springboot.app.models.entity.Genero2;
+import com.ingenieriaweb.springboot.app.models.entity.Idioma;
 import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 
@@ -36,7 +40,11 @@ public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IGeneroDao generoDao;
-
+	@Autowired
+	private IDetalleFichaDao detallefichaDao;
+	@Autowired
+	private IIdiomaDao idiomaDao;
+	
 
 	@Override
 	@Transactional(readOnly = true)
@@ -161,4 +169,23 @@ public class ClienteServiceImpl implements IClienteService {
 		videoDao.save(video);
 	}
 	
+	@Override
+	@Transactional
+	public void deleteV(Long id) {
+		videoDao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public DetalleFicha findOneFicha(Long id) {
+		// TODO Auto-generated method stub
+		return detallefichaDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Idioma> findAllI() {
+		// TODO Auto-generated method stub
+		return  (List<Idioma>) idiomaDao.findAll();
+	}
 }
