@@ -44,9 +44,9 @@
                             <td th:text="${item.trailer}"></td>
                          
 							
-						   <!-- <td th:if="${item.idioma.idioma}" th:text="${item.idioma.idioma}"></td>
-                            <td th:text="${item.formato.formato}"></td>
-							<td th:text="${item.genero.genero}"></td> -->
+						    <td  th:text="${item.idioma?.idioma}" ></td>
+                           <td th:text="${item.formato?.formato}"></td>
+							<td th:text="${item.genero?.genero}"></td>  
 							
 							 
 							<td><a class="btn btn-primary btn-sm"
