@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ingenieriaweb.springboot.app.models.dao.IClienteDao;
 import com.ingenieriaweb.springboot.app.models.dao.IFichaDao;
+import com.ingenieriaweb.springboot.app.models.dao.IUrbanizacionDao;
 import com.ingenieriaweb.springboot.app.models.dao.IVideoDao;
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
 import com.ingenieriaweb.springboot.app.models.entity.Ficha;
+import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 
 @Service
@@ -26,6 +28,9 @@ public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IFichaDao fichaDao;
+
+	@Autowired
+	private IUrbanizacionDao urbanizacionDao;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -93,10 +98,23 @@ public class ClienteServiceImpl implements IClienteService {
 		fichaDao.deleteById(id);
 	}
 
-
-//	public List<Urbanizacion> findAll() {
+	@Override
+	@Transactional(readOnly = true)
+	public List<Urbanizacion> findAllU() {
 		// TODO Auto-generated method stub
-		//return (List<Urbanizacion>) urbanizacionDao.findAll();
-//	}
+		return (List<Urbanizacion>) urbanizacionDao.findAll();
+	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Urbanizacion findOneU(Long id) {
+		// TODO Auto-generated method stub
+		return urbanizacionDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Urbanizacion> findAllU(Pageable pageable) {
+		return urbanizacionDao.findAll(pageable);
+	}
 }
