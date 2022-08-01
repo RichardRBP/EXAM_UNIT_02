@@ -20,7 +20,7 @@ import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 @Controller
 @SessionAttributes("genero")
 public class GeneroController {
-	@Autowired
+	/*@Autowired
 	private IGeneroDao generoDao;
 
 	@RequestMapping(value = "/listarGen", method = RequestMethod.GET)
@@ -74,5 +74,5 @@ public class GeneroController {
 			generoDao.delete(id);
 		}
 		return "redirect:/listarGen";
-	}
+	}*/
 }

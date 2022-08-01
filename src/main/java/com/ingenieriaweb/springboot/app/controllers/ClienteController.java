@@ -83,7 +83,7 @@ public class ClienteController {
 		model.addAttribute("titulo", "Listado de clientes");
 		model.addAttribute("clientes", clientes);
 		model.addAttribute("page", pageRender);
-		return "listar";
+		return "cliente/listar";
 	}
 
 	@RequestMapping(value = "/form")
@@ -92,7 +92,7 @@ public class ClienteController {
 		Cliente cliente = new Cliente();
 		model.put("cliente", cliente);
 		model.put("titulo", "Formulario de Cliente");
-		return "form";
+		return "cliente/form";
 	}
 
 	@RequestMapping(value = "/form/{id}")
@@ -112,7 +112,7 @@ public class ClienteController {
 		}
 		model.put("cliente", cliente);
 		model.put("titulo", "Editar Cliente");
-		return "form";
+		return "cliente/form";
 	}
 
 	@RequestMapping(value = "/form", method = RequestMethod.POST)
@@ -121,7 +121,7 @@ public class ClienteController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Cliente");
-			return "form";
+			return "cliente/form";
 		}
 
 		if (!foto.isEmpty()) {

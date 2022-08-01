@@ -35,4 +35,6 @@ public interface IClienteService {
 	
 	public void deleteFicha(Long id);
 
+	//public List<Urbanizacion> findAll();
+
 }

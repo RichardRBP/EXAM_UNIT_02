@@ -20,7 +20,7 @@ import com.ingenieriaweb.springboot.app.models.entity.Idioma;
 @Controller
 @SessionAttributes("idioma")
 public class IdiomaController {
-	@Autowired
+	/*@Autowired
 	private IIdiomaDao idiomaDao;
 
 	@RequestMapping(value = "/listarIdiom", method = RequestMethod.GET)
@@ -74,5 +74,5 @@ public class IdiomaController {
 			idiomaDao.delete(id);
 		}
 		return "redirect:/listarIdiom";
-	}
+	}*/
 }

@@ -92,4 +92,11 @@ public class ClienteServiceImpl implements IClienteService {
 	public void deleteFicha(Long id) {
 		fichaDao.deleteById(id);
 	}
+
+
+//	public List<Urbanizacion> findAll() {
+		// TODO Auto-generated method stub
+		//return (List<Urbanizacion>) urbanizacionDao.findAll();
+//	}
+
 }
