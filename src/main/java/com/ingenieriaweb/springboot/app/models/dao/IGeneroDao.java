@@ -2,14 +2,15 @@ package com.ingenieriaweb.springboot.app.models.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 
-public interface IGeneroDao {
-	/*public List<Genero2> findAll();
+public interface IGeneroDao extends PagingAndSortingRepository<Genero2, Long>{
+	 
+	@Query("select p from Genero2 p where p.genero like %?1%")
+	public List<Genero2> findByGenero(String term);
 
-	public void save(Genero2 genero);
-	
-	public Genero2 findOne(Long id);
-	
-	public void delete(Long id);*/
+	public List<Genero2> findByGeneroLikeIgnoreCase(String term);
 }

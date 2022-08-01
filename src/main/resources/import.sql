@@ -48,33 +48,34 @@ INSERT INTO fichas (fecha_alquiler, fecha_entrega, costo, mora, comentarios, dev
 INSERT INTO fichas (fecha_alquiler, fecha_entrega, costo, mora, comentarios, devuelto, cliente_id) VALUES('2022-07-25','2022-08-05',50,'sin mora','sin comentarios', 'pendiente', 3);
 
 
-INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id) VALUES('Jurasic Park', 2022, 10,42.51,'','qehG9dKVDG4',6,1);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id) VALUES('Dr Strange-multiverso', 2022, 10,10.51,'','KREBGtEeW9U',2,2);
-INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id) VALUES('Spider Man ', 2022, 10,12.00,'','JfVOs4VSpmA',1,1);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id) VALUES('Thor 4', 2022, 10,5.20,'','meNfg26orQI',7,3);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id) VALUES('Morbius', 2022, 10,9.20,'','oZ6iiRrz1SY',5,4);
+INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Jurasic Park', 2022, 10,42.51,'','qehG9dKVDG4',6,1,2,4);
+INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Dr Strange-multiverso', 2022, 10,10.51,'','KREBGtEeW9U',2,2,3,3);
+INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Spider Man ', 2022, 10,12.00,'','JfVOs4VSpmA',1,1,5,2);
+INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Thor 4', 2022, 10,5.20,'','meNfg26orQI',7,3,4,5);
+INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Morbius', 2022, 10,9.20,'','oZ6iiRrz1SY',5,4,2,3);
 
+/*
 INSERT INTO generos_items (video_id,genero_id) VALUES(1,1);
 INSERT INTO generos_items (video_id,genero_id) VALUES(1,2);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(1,1);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(1,2);
 INSERT INTO generos_items (video_id,genero_id) VALUES(2,5);
 INSERT INTO generos_items (video_id,genero_id) VALUES(2,2);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(2,3);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(2,4);
 INSERT INTO generos_items (video_id,genero_id) VALUES(3,3);
 INSERT INTO generos_items (video_id,genero_id) VALUES(3,1);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(3,5);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(3,6);
 INSERT INTO generos_items (video_id,genero_id) VALUES(4,1);
 INSERT INTO generos_items (video_id,genero_id) VALUES(4,6);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(4,7);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(4,5);
 INSERT INTO generos_items (video_id,genero_id) VALUES(5,7);
 INSERT INTO generos_items (video_id,genero_id) VALUES(5,5);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(5,6);
-INSERT INTO idiomas_items (video_id,idioma_id) VALUES(5,4);
 
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(1,1);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(1,2);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(2,3);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(2,4);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(3,5);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(3,6);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(4,7);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(4,5);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(5,6);
+INSERT INTO idiomas_items (video_id,idioma_id) VALUES(5,4);*/
 
 
 INSERT INTO fichas_items (ficha_id, video_id) VALUES(1, 1);

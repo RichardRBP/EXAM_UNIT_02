@@ -83,7 +83,7 @@ public class ClienteController {
 
 		Page<Cliente> clientes = clienteService.findAll(pageRequest);
 
-		PageRender<Cliente> pageRender = new PageRender<Cliente>("/listar", clientes);
+		PageRender<Cliente> pageRender = new PageRender<Cliente>("/cliente/listar", clientes);
 		model.addAttribute("titulo", "Listado de clientes");
 		model.addAttribute("clientes", clientes);
 		model.addAttribute("page", pageRender);

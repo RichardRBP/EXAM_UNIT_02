@@ -10,10 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ingenieriaweb.springboot.app.models.dao.IClienteDao;
 import com.ingenieriaweb.springboot.app.models.dao.IFichaDao;
+import com.ingenieriaweb.springboot.app.models.dao.IGeneroDao;
 import com.ingenieriaweb.springboot.app.models.dao.IUrbanizacionDao;
 import com.ingenieriaweb.springboot.app.models.dao.IVideoDao;
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
 import com.ingenieriaweb.springboot.app.models.entity.Ficha;
+import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 
@@ -31,6 +33,10 @@ public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IUrbanizacionDao urbanizacionDao;
+
+	@Autowired
+	private IGeneroDao generoDao;
+
 
 	@Override
 	@Transactional(readOnly = true)
@@ -117,4 +123,42 @@ public class ClienteServiceImpl implements IClienteService {
 	public Page<Urbanizacion> findAllU(Pageable pageable) {
 		return urbanizacionDao.findAll(pageable);
 	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Video> findAllV() {
+		// TODO Auto-generated method stub
+		return  (List<Video>) videoDao.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Video> findAllV(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return videoDao.findAll(pageable);
+	}
+	
+	 
+
+	@Override
+	@Transactional(readOnly = true)
+	public Video findOneV(Long id) {
+		// TODO Auto-generated method stub
+		return videoDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Genero2> findByGenero(String term) {
+		// TODO Auto-generated method stub
+		return generoDao.findByGeneroLikeIgnoreCase("%" + term + "%");
+	}
+
+	@Override
+	@Transactional
+	public void saveVideo(Video video) {
+		// TODO Auto-generated method stub
+		videoDao.save(video);
+	}
+	
 }
