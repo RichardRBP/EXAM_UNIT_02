@@ -1,11 +1,16 @@
 package com.ingenieriaweb.springboot.app.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -22,6 +27,14 @@ public class Idioma implements Serializable{
 	@NotEmpty
 	private String subtitulos;
 	
+	@OneToMany(mappedBy = "idioma", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Video> videos;
+	
+	public Idioma() {
+		videos = new ArrayList<Video>();
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -49,6 +62,18 @@ public class Idioma implements Serializable{
 
 	public void setSubtitulos(String subtitulos) {
 		this.subtitulos = subtitulos;
+	}
+	
+	public List<Video> getVideos() {
+		return videos;
+	}
+
+	public void setVideos(List<Video> videos) {
+		this.videos = videos;
+	}
+	
+	public void addVideo(Video video) {
+		videos.add(video);
 	}
 
 

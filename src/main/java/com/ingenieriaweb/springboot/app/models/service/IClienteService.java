@@ -39,4 +39,15 @@ public interface IClienteService {
 	public Page<Urbanizacion> findAllU(Pageable pageable);
 
 	public Urbanizacion findOneU(Long id);
+
+	public List<Video> findAllV();
+	
+	public Page<Video> findAllV(Pageable pageable);
+
+	public Video findOneV(Long id);
+
+	public List<Genero2> findByGenero(String term);
+
+	public void saveVideo(Video video);
+
 }

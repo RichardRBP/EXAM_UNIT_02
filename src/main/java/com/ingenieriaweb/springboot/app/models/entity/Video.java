@@ -42,21 +42,18 @@ public class Video implements Serializable {
     @NotNull
     private Integer mes;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "video_id")
-    private List<DetalleGenero> itemsG;
+    
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "video_id")
-    private List<DetalleIdioma> itemsI;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Idioma idioma;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Formato formato;
 
-    public Video() {
-        this.itemsG = new ArrayList<DetalleGenero>();
-        this.itemsI = new ArrayList<DetalleIdioma>();
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Genero2 genero;
+
+     
 
     public Long getId() {
         return id;
@@ -133,31 +130,8 @@ public class Video implements Serializable {
     public void setMes(Integer mes) {
         this.mes = mes;
     }
-
-    public void addDetalleGenero(DetalleGenero itemG) {
-        this.itemsG.add(itemG);
-    }
-
-    public void addDetalleIdioma(DetalleIdioma itemI) {
-        this.itemsI.add(itemI);
-    }
-
-
-    public List<DetalleGenero> getItemsG() {
-        return itemsG;
-    }
-
-    public void setItemsG(List<DetalleGenero> itemsG) {
-        this.itemsG = itemsG;
-    }
-
-    public List<DetalleIdioma> getItemsI() {
-        return itemsI;
-    }
-
-    public void setItemsI(List<DetalleIdioma> itemsI) {
-        this.itemsI = itemsI;
-    }
+ 
+    
 
     public Formato getFormato() {
         return formato;
@@ -166,6 +140,23 @@ public class Video implements Serializable {
     public void setFormato(Formato formato) {
         this.formato = formato;
     }
+    public Idioma getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(Idioma idioma) {
+        this.idioma = idioma;
+    }
+
+    public Genero2 getGenero() {
+        return genero;
+    }
+
+
+    public void setGenero(Genero2 genero) {
+        this.genero = genero;
+    }
+
 
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -173,5 +164,10 @@ public class Video implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
+
+
+
+    
+    
 
 }
