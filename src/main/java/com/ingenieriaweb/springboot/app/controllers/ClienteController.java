@@ -2,6 +2,7 @@ package com.ingenieriaweb.springboot.app.controllers;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,11 +29,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ingenieriaweb.springboot.app.models.entity.Cliente;
+import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.service.IClienteService;
 import com.ingenieriaweb.springboot.app.models.service.IUploadFileService;
 import com.ingenieriaweb.springboot.app.util.paginator.PageRender;
 
 @Controller
+@RequestMapping("/cliente")
 @SessionAttributes("cliente")
 public class ClienteController {
 
@@ -83,16 +87,15 @@ public class ClienteController {
 		model.addAttribute("titulo", "Listado de clientes");
 		model.addAttribute("clientes", clientes);
 		model.addAttribute("page", pageRender);
-		return "listar";
+		return "cliente/listar";
 	}
 
 	@RequestMapping(value = "/form")
 	public String crear(Map<String, Object> model) {
-
 		Cliente cliente = new Cliente();
 		model.put("cliente", cliente);
 		model.put("titulo", "Formulario de Cliente");
-		return "form";
+		return "cliente/form";
 	}
 
 	@RequestMapping(value = "/form/{id}")
@@ -112,18 +115,15 @@ public class ClienteController {
 		}
 		model.put("cliente", cliente);
 		model.put("titulo", "Editar Cliente");
-		return "form";
+		return "cliente/form";
 	}
 
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
-	public String guardar(@Valid Cliente cliente, BindingResult result, Model model,
-			@RequestParam("file") MultipartFile foto, RedirectAttributes flash, SessionStatus status) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("titulo", "Formulario de Cliente");
-			return "form";
-		}
-
+	@PostMapping("/form")
+	public String guardar(@Valid Cliente cliente, 
+			BindingResult result, Model model,@RequestParam("file") MultipartFile foto,
+			RedirectAttributes flash,
+			SessionStatus status) {
+		 
 		if (!foto.isEmpty()) {
 
 			if (cliente.getId() != null && cliente.getId() > 0 && cliente.getFoto() != null
@@ -145,15 +145,19 @@ public class ClienteController {
 			cliente.setFoto(uniqueFilename);
 		}
 
-		String mensajeFlash = (cliente.getId() != null) ? "Cliente editado con éxito!" : "Cliente creado con éxito!";
-
+		 
+		 
 		clienteService.save(cliente);
 		status.setComplete();
-		flash.addFlashAttribute("success", mensajeFlash);
-		return "redirect:listar";
-	}
 
-	@RequestMapping(value = "/eliminarCliente/{id}")
+		flash.addFlashAttribute("success", "Factura creada con éxito!");
+
+		 
+		return "redirect:/cliente/listar"; 
+	}
+	
+
+	@RequestMapping(value = "/eliminar/{id}")
 	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 
 		if (id > 0) {
@@ -163,10 +167,31 @@ public class ClienteController {
 			flash.addFlashAttribute("success", "Cliente eliminado con éxito!");
 
 			if (uploadFileService.delete(cliente.getFoto())) {
-				flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " eliminada con exito!");
+				//flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " eliminada con exito!");
 			}
 
 		}
-		return "redirect:/listar";
+		return "redirect:/cliente/listar";
 	}
+
+	@GetMapping("/form/{urbanizacionId}")
+	public String crear(@PathVariable(value = "urbanizacionId") Long urbanizacionId, Map<String, Object> model,
+			RedirectAttributes flash) {
+
+		Urbanizacion urbanizacion = clienteService.findOneU(urbanizacionId);
+
+		if (urbanizacion == null) {
+			flash.addFlashAttribute("error", "la urbanizacion no existe en la base de datos");
+			return "redirect:/urbanizacion/listar";
+		}
+
+		Cliente cliente = new Cliente();
+		cliente.setUrbanizacion(urbanizacion);
+
+		model.put("cliente", cliente);
+		model.put("titulo", "Crear Cliente");
+
+		return "cliente/form";
+	}
+
 }

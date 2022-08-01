@@ -12,7 +12,7 @@ import com.ingenieriaweb.springboot.app.models.entity.Idioma;
 
 @Repository
 public class IdiomaDaoImpl implements IIdiomaDao{
-	@PersistenceContext
+	/*@PersistenceContext
 	private EntityManager idi;
 
 	@SuppressWarnings("unchecked")
@@ -43,5 +43,5 @@ public class IdiomaDaoImpl implements IIdiomaDao{
     @Transactional
     public void delete(Long id) {
         idi.remove(findOne(id));
-}
+}*/
 }

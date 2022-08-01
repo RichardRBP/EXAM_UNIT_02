@@ -35,4 +35,8 @@ public interface IClienteService {
 	
 	public void deleteFicha(Long id);
 
+	public List<Urbanizacion> findAllU();
+	public Page<Urbanizacion> findAllU(Pageable pageable);
+
+	public Urbanizacion findOneU(Long id);
 }

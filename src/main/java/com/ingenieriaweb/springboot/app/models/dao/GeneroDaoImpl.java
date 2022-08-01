@@ -12,7 +12,7 @@ import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 
 @Repository
 public class GeneroDaoImpl implements IGeneroDao {
-	@PersistenceContext
+	/*@PersistenceContext
 	private EntityManager ge;
 
 	@SuppressWarnings("unchecked")
@@ -43,5 +43,5 @@ public class GeneroDaoImpl implements IGeneroDao {
     @Transactional
     public void delete(Long id) {
         ge.remove(findOne(id));
-}
+}*/
 }
