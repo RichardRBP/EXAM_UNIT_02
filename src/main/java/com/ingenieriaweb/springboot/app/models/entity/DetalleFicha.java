@@ -16,41 +16,40 @@ import javax.persistence.Table;
 @Table(name = "fichas_items")
 public class DetalleFicha implements Serializable {
 
-	 
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "video_id")
-	private Video video;
-	
-	
-	public Long getId() {
-		return id;
-	}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "video_id")
+    private Video video;
 
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
 
-	public Video getVideo() {
-		return video;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 
-	public void setVideo(Video video) {
-		this.video = video;
-	}
+    public Video getVideo() {
+        return video;
+    }
 
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setVideo(Video video) {
+        this.video = video;
+    }
 
 
-	private static final long serialVersionUID = 1L;
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+
+    private static final long serialVersionUID = 1L;
 }

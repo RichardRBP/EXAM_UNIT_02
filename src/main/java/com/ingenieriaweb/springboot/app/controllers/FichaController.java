@@ -53,7 +53,7 @@ public class FichaController {
 		model.addAttribute("ficha", ficha);
 		model.addAttribute("titulo", "Ficha: ".concat(ficha.getComentarios()));
 		
-		return "factura/ver";
+		return "ficha/ver";
 	}
 
 	@GetMapping("/form/{clienteId}")
@@ -73,7 +73,7 @@ public class FichaController {
 		model.put("ficha", ficha);
 		model.put("titulo", "Crear Ficha");
 
-		return "factura/form";
+		return "ficha/form";
 	}
 
 	@GetMapping(value = "/cargar-videos/{term}", produces = { "application/json" })
@@ -112,7 +112,7 @@ public class FichaController {
 		clienteService.saveFicha(ficha);
 		status.setComplete();
 
-		flash.addFlashAttribute("success", "Factura creada con éxito!");
+		flash.addFlashAttribute("success", "Ficha creada con éxito!");
 
 		return "redirect:/ver/" + ficha.getCliente().getId();
 	}
@@ -124,7 +124,7 @@ public class FichaController {
 		
 		if(ficha != null) {
 			clienteService.deleteFicha(id);
-			flash.addFlashAttribute("success", "Factura eliminada con éxito!");
+			flash.addFlashAttribute("success", "Ficha eliminada con éxito!");
 			return "redirect:/ver/" + ficha.getCliente().getId();
 		}
 		flash.addFlashAttribute("error", "La ficha no existe en la base de datos, no se pudo eliminar!");

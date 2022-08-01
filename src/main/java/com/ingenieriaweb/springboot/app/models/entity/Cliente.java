@@ -20,119 +20,119 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@NotEmpty
-	private String nombre;
-	@NotEmpty
-	private String apellido;
-	@NotEmpty
-	private String direccion;
-	@NotEmpty
-	private String telefono;
-	@NotEmpty
-	@Email
-	private String email;
-	
-	private String foto;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Urbanizacion urbanizacion;
-	
-	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Ficha> fichas;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotEmpty
+    private String nombre;
+    @NotEmpty
+    private String apellido;
+    @NotEmpty
+    private String direccion;
+    @NotEmpty
+    private String telefono;
+    @NotEmpty
+    @Email
+    private String email;
 
-	public Cliente() {
-		fichas = new ArrayList<Ficha>();
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    private String foto;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Urbanizacion urbanizacion;
 
-	public String getNombre() {
-		return nombre;
-	}
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Ficha> fichas;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public Cliente() {
+        fichas = new ArrayList<Ficha>();
+    }
 
-	public String getApellido() {
-		return apellido;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getDireccion() {
-		return direccion;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getTelefono() {
-		return telefono;
-	}
+    public String getApellido() {
+        return apellido;
+    }
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getDireccion() {
+        return direccion;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
-	public String getFoto() {
-		return foto;
-	}
+    public String getTelefono() {
+        return telefono;
+    }
 
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-	
-	public List<Ficha> getFichas() {
-		return fichas;
-	}
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-	public void setFichas(List<Ficha> fichas) {
-		this.fichas = fichas;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Urbanizacion getUrbanizacion() {
-		return urbanizacion;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setUrbanizacion(Urbanizacion urbanizacion) {
-		this.urbanizacion = urbanizacion;
-	}
-	
-	
-	public void addFicha(Ficha ficha) {
-		fichas.add(ficha);
-	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	@Override
-	public String toString() {
-		return nombre + " " + apellido;
-	}
-	
-	private static final long serialVersionUID = 1L; 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public List<Ficha> getFichas() {
+        return fichas;
+    }
+
+    public void setFichas(List<Ficha> fichas) {
+        this.fichas = fichas;
+    }
+
+    public Urbanizacion getUrbanizacion() {
+        return urbanizacion;
+    }
+
+    public void setUrbanizacion(Urbanizacion urbanizacion) {
+        this.urbanizacion = urbanizacion;
+    }
+
+
+    public void addFicha(Ficha ficha) {
+        fichas.add(ficha);
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
+
+    private static final long serialVersionUID = 1L;
 }
