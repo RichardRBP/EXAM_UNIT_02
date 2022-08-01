@@ -68,7 +68,7 @@ public class IdiomaController {
 	}
 	
 	
-	@RequestMapping(value="/eliminarGen/{id}")
+	@RequestMapping(value="/eliminarIdioma/{id}")
 	public String eliminar(@PathVariable(value="id") Long id) {
 		if(id > 0) {
 			idiomaDao.delete(id);

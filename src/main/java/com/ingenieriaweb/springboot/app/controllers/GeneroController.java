@@ -68,7 +68,7 @@ public class GeneroController {
 	}
 	
 	
-	@RequestMapping(value="/eliminarGen/{id}")
+	@RequestMapping(value="/eliminarGenero/{id}")
 	public String eliminar(@PathVariable(value="id") Long id) {
 		if(id > 0) {
 			generoDao.delete(id);

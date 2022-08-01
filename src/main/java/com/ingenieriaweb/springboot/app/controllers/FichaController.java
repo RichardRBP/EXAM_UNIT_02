@@ -117,7 +117,7 @@ public class FichaController {
 		return "redirect:/ver/" + ficha.getCliente().getId();
 	}
 	
-	@GetMapping("/eliminar/{id}")
+	@GetMapping("/eliminarFicha/{id}")
 	public String eliminar(@PathVariable(value="id") Long id, RedirectAttributes flash) {
 		
 		Ficha ficha = clienteService.findFichaById(id);

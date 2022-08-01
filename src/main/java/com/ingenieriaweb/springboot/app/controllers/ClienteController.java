@@ -153,7 +153,7 @@ public class ClienteController {
 		return "redirect:listar";
 	}
 
-	@RequestMapping(value = "/eliminar/{id}")
+	@RequestMapping(value = "/eliminarCliente/{id}")
 	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 
 		if (id > 0) {
