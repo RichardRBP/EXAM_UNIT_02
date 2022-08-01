@@ -83,6 +83,7 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Video> findByTitulo(String term) {
+
 		return videoDao.findByTituloLikeIgnoreCase("%" + term + "%");
 	}
 

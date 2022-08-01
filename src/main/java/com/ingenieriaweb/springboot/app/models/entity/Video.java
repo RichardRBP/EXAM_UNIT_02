@@ -21,8 +21,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "videos")
 public class Video implements Serializable {
@@ -47,8 +45,6 @@ public class Video implements Serializable {
 
     @NotNull
     private Integer mes;
-
-    
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Idioma idioma;
