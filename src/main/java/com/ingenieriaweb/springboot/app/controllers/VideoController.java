@@ -61,10 +61,28 @@ public class VideoController {
 		return "video/listar";
 	}
 
+	@RequestMapping(value = "/verBonitos", method = RequestMethod.GET)
+	public String listarVideos(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
+
+		PageRequest pageRequest = PageRequest.of(page, 20);
+
+		Page<Video> videos = videoService.findAllV(pageRequest);
+
+		PageRender<Video> pageRender = new PageRender<Video>("/video/verBonitos", videos);
+		model.addAttribute("titulo", "Las Mejores Peliculas");
+		model.addAttribute("videos", videos);
+		model.addAttribute("page", pageRender);
+		return "video/verBonitos";
+	}
+
     @RequestMapping(value = "/form")
 	public String crear(Map<String, Object> model) {
 		Video video = new Video();
+
 		model.put("video", video);
+		model.put("idiomas", videoService.findAllI());
+		model.put("generos", videoService.findAllG());
+		model.put("formatos", videoService.findAllF());
 		model.put("titulo", "Formulario de Video");
 		return "video/form";
 	}
@@ -95,9 +113,14 @@ public class VideoController {
 
 			video.setImagenPortada(uniqueFilename);
 		}
-
-		 
-		 
+		if(result.hasErrors()) {
+			model.addAttribute("titulo", "Formulario de Video");
+			model.addAttribute("idiomas", videoService.findAllI());
+			model.addAttribute("generos", videoService.findAllG());
+			model.addAttribute("formatos", videoService.findAllF());
+			return "video/form";
+		}
+ 
 		videoService.saveVideo(video);
 		status.setComplete();
 

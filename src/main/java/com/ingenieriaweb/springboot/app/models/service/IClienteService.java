@@ -56,4 +56,8 @@ public interface IClienteService {
 	public DetalleFicha findOneFicha(Long id);
 
 	public List<Idioma> findAllI();
+
+	public List<Genero2> findAllG();
+
+	public List<Formato> findAllF();
 }

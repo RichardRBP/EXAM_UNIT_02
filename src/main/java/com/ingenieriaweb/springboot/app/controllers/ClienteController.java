@@ -70,12 +70,12 @@ public class ClienteController {
 		Cliente cliente = clienteService.findOne(id);
 		if (cliente == null) {
 			flash.addFlashAttribute("error", "El cliente no existe en la base de datos");
-			return "redirect:/listar";
+			return "redirect:/cliente/listar";
 		}
 
 		model.put("cliente", cliente);
 		model.put("titulo", "Detalle cliente: " + cliente.getNombre());
-		return "ver";
+		return "cliente/ver";
 	}
 
 	@RequestMapping(value = "/listar", method = RequestMethod.GET)
@@ -96,6 +96,7 @@ public class ClienteController {
 	public String crear(Map<String, Object> model) {
 		Cliente cliente = new Cliente();
 		model.put("cliente", cliente);
+		model.put("urbanizaciones", clienteService.findAllU());
 		model.put("titulo", "Formulario de Cliente");
 		return "cliente/form";
 	}

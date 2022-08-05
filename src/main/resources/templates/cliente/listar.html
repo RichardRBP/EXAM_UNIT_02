@@ -11,7 +11,9 @@
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 
-				 
+				<h4 class="card-title">
+					<a th:href="@{/cliente/form}" class="btn btn-primary">Crear Cliente</a>
+				</h4>
 
 				<table class="table table-striped">
 					<thead>
@@ -21,8 +23,8 @@
 							<th>apellido</th>
                             <th>direccion</th>
 							<th>telefono</th>
-                            <th>email</th>
                             <th>urbanizacion</th>
+							<th>foto</th>
 							<th>crear ficha</th>
 							<th>editar</th>
 							<th>eliminar</th>
@@ -31,14 +33,20 @@
 					<tbody>
 						<tr th:each="cliente: ${clientes}">
 							<td><a class="btn btn-primary btn-xs"
-								th:href="@{/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
-							<td th:text="${cliente.nombre}"></td>
+								th:href="@{/cliente/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
+							<td th:text="${cliente.nombre}" >  </td>
 							<td th:text="${cliente.apellido}"></td>
                             <td th:text="${cliente.direccion}"></td>
                             <td th:text="${cliente.telefono}"></td>
-							<td th:text="${cliente.email}"></td>
-                            <td th:text="${cliente.urbanizacion.nombre}"></td>
+                            <td  > [[${cliente.urbanizacion.nombre}]]-[[${cliente.urbanizacion.distrito}]] </td>
 							
+						<td th:if="${cliente?.foto}" style="max-width: 180px;"> <img th:if="${#strings.length(cliente.foto) > 0}"
+							class="img-thumbnail rounded float-left" style="max-width: 100%;"
+							th:src="@{'/uploads/' + ${cliente.foto}}" th:alt="${cliente.foto}" />
+						 </td>
+						<td th:unless="${cliente?.foto}" th:text="Sin Foto"> 
+							
+							  </td>  
 							<td><a class="btn btn-success btn-sm"
 								th:href="@{'/ficha/form/' + ${cliente.id}}"
 								th:text="'Crear Ficha'"></a></td>

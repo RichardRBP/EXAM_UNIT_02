@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col col-4">
+						<img th:if="${#strings.length(cliente.foto) > 0}"
+						class="img-thumbnail rounded float-left" style="max-width: 100%;"
+						th:src="@{'/uploads/' + ${cliente.foto}}" th:alt="${cliente.foto}" />
+					</div>
+
+					<div class="col col-8">
+						<div class="row"><div class="col-12"  >NOMBRE:  [[${cliente.nombre}]], [[${cliente.apellido}]] </div></div>
+						<div class="row"><div class="col-12"><hr/></div></div>
+						<div class="row"><div class="col-12">TELEFONO:  [[${cliente.telefono}]]</div></div>
+						<div class="row"><div class="col-12"><hr/></div></div>
+						<div class="row"><div class="col-12">EMAIL:  [[${cliente.email}]]</div></div>
+						<div class="row"><div class="col-12"><hr/></div></div>
+						<div class="row"><div class="col-12">DIRECCION:  [[${cliente.direccion}]], [[${cliente.urbanizacion.nombre}]], [[${cliente.urbanizacion.distrito}]]</div></div>
+					</div>
+
+				</div>
+				
+
+				<ul class="list-group">
+					
+					 
+				</ul>
+
+				 
+			</div>
+		</div>
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

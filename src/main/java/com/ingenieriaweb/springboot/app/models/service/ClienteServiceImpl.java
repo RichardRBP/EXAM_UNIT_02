@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ingenieriaweb.springboot.app.models.dao.IClienteDao;
 import com.ingenieriaweb.springboot.app.models.dao.IDetalleFichaDao;
 import com.ingenieriaweb.springboot.app.models.dao.IFichaDao;
+import com.ingenieriaweb.springboot.app.models.dao.IFormatoDao;
 import com.ingenieriaweb.springboot.app.models.dao.IGeneroDao;
 import com.ingenieriaweb.springboot.app.models.dao.IIdiomaDao;
 import com.ingenieriaweb.springboot.app.models.dao.IUrbanizacionDao;
@@ -20,6 +21,8 @@ import com.ingenieriaweb.springboot.app.models.entity.DetalleFicha;
 import com.ingenieriaweb.springboot.app.models.entity.Ficha;
 import com.ingenieriaweb.springboot.app.models.entity.Genero2;
 import com.ingenieriaweb.springboot.app.models.entity.Idioma;
+import com.ingenieriaweb.springboot.app.models.entity.Genero2;
+import com.ingenieriaweb.springboot.app.models.entity.Formato;
 import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
 import com.ingenieriaweb.springboot.app.models.entity.Video;
 
@@ -44,6 +47,8 @@ public class ClienteServiceImpl implements IClienteService {
 	private IDetalleFichaDao detallefichaDao;
 	@Autowired
 	private IIdiomaDao idiomaDao;
+	@Autowired
+	private IFormatoDao formatoDao;
 	
 
 	@Override
@@ -187,5 +192,17 @@ public class ClienteServiceImpl implements IClienteService {
 	public List<Idioma> findAllI() {
 		// TODO Auto-generated method stub
 		return  (List<Idioma>) idiomaDao.findAll();
+	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Genero2> findAllG() {
+		// TODO Auto-generated method stub
+		return  (List<Genero2>) generoDao.findAll();
+	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Formato> findAllF() {
+		// TODO Auto-generated method stub
+		return  (List<Formato>) formatoDao.findAll();
 	}
 }

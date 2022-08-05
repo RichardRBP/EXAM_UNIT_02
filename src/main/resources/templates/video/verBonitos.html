@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+ <style>
+	.cardvideo:hover {
+		background-color: aqua;	
+	}
+
+	 
+						
+								 
+ </style>
+<body>
+
+	<header th:replace="layout/layout :: header">  
+		
+	</header>
+
+	<div class="container py-4">
+		<div class="row">
+			<div class="col">
+				
+			</div>
+		</div>
+
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col col-4" th:each="item: ${videos}"> 
+						<div class="card cardvideo"   >
+						 <img th:if="${#strings.length(item.imagenPortada) > 0}"
+								class="img-thumbnail rounded float-left" style="max-width: 286PX; max-height: 170px;"
+								th:src="@{'/uploads/' + ${item.imagenPortada}}" th:alt="${item.imagenPortada}" />
+							 
+								<div class="card-body cardvideo">
+								 
+									<i class="fas fa-tasks" aria-hidden="true"></i>    
+								  
+								<p class="card-text cardvideo">[[${item.titulo}]] </p>
+							 
+							</div>
+						  </div>
+					</div>
+				</div>
+				 
+			</div>
+		</div>
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -37,6 +37,8 @@ public class Video implements Serializable {
 
     @NotNull
     private Double precio;
+    @NotEmpty
+    private String descripcion;
 
     private String imagenPortada;
 
@@ -168,6 +170,17 @@ public class Video implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
+
+
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
 
 
