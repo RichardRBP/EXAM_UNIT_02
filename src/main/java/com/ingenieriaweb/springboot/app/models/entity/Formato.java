@@ -1,5 +1,8 @@
 package com.ingenieriaweb.springboot.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,8 @@ public class Formato implements Serializable{
 	private Long id;
 	@NotEmpty
 	private String formato;
-	
+
+	@JsonManagedReference
 	@OneToMany(mappedBy = "formato", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Video> videos;
 	

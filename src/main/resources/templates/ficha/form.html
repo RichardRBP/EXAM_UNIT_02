@@ -50,7 +50,7 @@
 						<label for="costo" class="col-sm-2 col-form-label"
 							th:text="'costo'"></label>
 						<div class="col-sm-6">
-							<input type="number" th:field="*{costo}" class="form-control"  th:errorclass="'form-control is-invalid'" />
+							<input type="number" th:field="*{costo}" class="form-control" id="costoTotal" th:errorclass="'form-control is-invalid'" />
 							<div class="invalid-feedback" th:if="${#fields.hasErrors('costo')}" th:errors="*{costo}"></div>
 						</div>
 					</div>

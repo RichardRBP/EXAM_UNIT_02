@@ -27,16 +27,40 @@
 						<div class="row"><div class="col-12"><hr/></div></div>
 						<div class="row"><div class="col-12">DIRECCION:  [[${cliente.direccion}]], [[${cliente.urbanizacion.nombre}]], [[${cliente.urbanizacion.distrito}]]</div></div>
 					</div>
-
 				</div>
-				
 
-				<ul class="list-group">
-					
-					 
-				</ul>
+				<div th:if="${#lists.isEmpty(cliente.fichas)}"
+					 class="alert alert-info my-4"
+					 th:text="'No hay fichas asignadas para el cliente ' + ${cliente.nombre} + ' ' + ${cliente.apellido}"></div>
 
-				 
+				<table th:if="${not #lists.isEmpty(cliente.fichas)}"
+					   class="table table-bordered table-striped my-4">
+					<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>FechaAlquiler</th>
+						<th>FechaEntrega</th>
+						<th>Comentarios</th>
+						<th>Devuelto</th>
+						<th>Total</th>
+						<th>Ver</th>
+						<th>Eliminar</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr th:each="ficha: ${cliente.fichas}">
+						<td th:text="${ficha.id}"></td>
+						<td th:text="${ficha.fechaAlquiler}"></td>
+						<td th:text="${ficha.fechaEntrega}"></td>
+						<td th:text="${ficha.comentarios}"></td>
+						<td th:text="${ficha.devuelto}"></td>
+						<td th:text="${ficha.costo}"></td>
+						<td><a class="btn btn-primary btn-sm" th:href="@{'/ficha/ver/' + ${ficha.id}}" th:text="'detalle'"></a></td>
+						<td><a class="btn btn-danger btn-sm" th:href="@{'/ficha/eliminarFicha/' + ${ficha.id}}" th:text="'eliminar'"
+							   onclick="return confirm('¿Estas seguro que desea eliminar la ficha?');"></a></td>
+					</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 

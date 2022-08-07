@@ -53,7 +53,7 @@ INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,f
 INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Spider Man ', 2022, 10,12.00,'','JfVOs4VSpmA',1,1,5,2);
 INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Thor 4', 2022, 10,5.20,'','meNfg26orQI',7,3,4,5);
 INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Morbius', 2022, 10,9.20,'','oZ6iiRrz1SY',5,4,2,3);
- 
+
 
 INSERT INTO fichas_items (ficha_id, video_id) VALUES(1, 1);
 INSERT INTO fichas_items (ficha_id, video_id) VALUES(1, 2);
