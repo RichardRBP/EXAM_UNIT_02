@@ -145,7 +145,6 @@ public class Ficha implements Serializable {
         this.items.add(item);
     }
 
-
     public static long getSerialversionuid() {
         return serialVersionUID;
     }

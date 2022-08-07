@@ -1,6 +1,7 @@
 package com.ingenieriaweb.springboot.app.models.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -48,12 +49,15 @@ public class Video implements Serializable {
     @NotNull
     private Integer mes;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Idioma idioma;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Formato formato;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Genero2 genero;
 
@@ -169,7 +173,9 @@ public class Video implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
+    public Double calcularImporte() {
+        return cantidad.doubleValue() * precio;
+    }
 
     public String getDescripcion() {
         return descripcion;

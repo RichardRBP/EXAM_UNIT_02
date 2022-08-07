@@ -1,5 +1,8 @@
 package com.ingenieriaweb.springboot.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +29,8 @@ public class Idioma implements Serializable{
 	private String idioma;
 	@NotEmpty
 	private String subtitulos;
-	
+
+	@JsonManagedReference
 	@OneToMany(mappedBy = "idioma", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Video> videos;
 	
@@ -71,7 +75,7 @@ public class Idioma implements Serializable{
 	public void setVideos(List<Video> videos) {
 		this.videos = videos;
 	}
-	
+
 	public void addVideo(Video video) {
 		videos.add(video);
 	}
