@@ -13,17 +13,15 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 @Repository
 public class IdiomaDaoImpl {
-	/*@PersistenceContext
+	@PersistenceContext
 	private EntityManager idi;
 
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
-    @Override
     public List<Idioma> findAll() {
         return idi.createQuery("from Idioma").getResultList();
     }
 
-    @Override
     @Transactional
     public void save(Idioma idioma) {
         if (idioma.getId() != null && idioma.getId() > 0) {
@@ -34,15 +32,13 @@ public class IdiomaDaoImpl {
         
     }
 
-    @Override
     @Transactional(readOnly = true)
     public Idioma findOne(Long id) {
         return idi.find(Idioma.class, id);
     }
 
-    @Override
     @Transactional
     public void delete(Long id) {
         idi.remove(findOne(id));
-}*/
+}
 }

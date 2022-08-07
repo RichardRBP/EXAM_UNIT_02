@@ -52,7 +52,7 @@ public class UrbanizacionController {
 		Page<Urbanizacion> urbanizacion = clienteService.findAllU(pageRequest);
 
 		PageRender<Urbanizacion> pageRender = new PageRender<Urbanizacion>("/urbanizacion/listar", urbanizacion);
-		model.addAttribute("titulo", "Listado de clientes");
+		model.addAttribute("titulo", "Listado de urbanizaciones");
 		model.addAttribute("urbanizaciones", urbanizacion);
 		model.addAttribute("page", pageRender);
 		return "urbanizacion/listar";

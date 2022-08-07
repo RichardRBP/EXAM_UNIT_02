@@ -50,7 +50,7 @@ public class ClienteServiceImpl implements IClienteService {
 	@Autowired
 	private IFormatoDao formatoDao;
 	
-
+//CLIENTE
 	@Override
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {
@@ -85,24 +85,11 @@ public class ClienteServiceImpl implements IClienteService {
 		return clienteDao.findAll(pageable);
 	}
 
-	@Override
-	@Transactional(readOnly = true)
-	public List<Video> findByTitulo(String term) {
-
-		return videoDao.findByTituloLikeIgnoreCase("%" + term + "%");
-	}
-
+//	FICHA
 	@Override
 	@Transactional
 	public void saveFicha(Ficha ficha) {
 		fichaDao.save(ficha);
-	}
-
-	@Override
-	@Transactional(readOnly=true)
-	public Video findVideoById(Long id) {
-		// TODO Auto-generated method stub
-		return videoDao.findById(id).orElse(null);
 	}
 
 	@Override
@@ -118,6 +105,22 @@ public class ClienteServiceImpl implements IClienteService {
 		fichaDao.deleteById(id);
 	}
 
+//DETALLE FICHA
+	@Override
+	@Transactional(readOnly = true)
+	public DetalleFicha findOneFicha(Long id) {
+		// TODO Auto-generated method stub
+		return detallefichaDao.findById(id).orElse(null);
+	}
+
+//FORMATO
+	@Override
+	@Transactional(readOnly = true)
+	public List<Formato> findAllF() {
+		// TODO Auto-generated method stub
+		return  (List<Formato>) formatoDao.findAll();
+	}
+//	URBANIZACION
 	@Override
 	@Transactional(readOnly = true)
 	public List<Urbanizacion> findAllU() {
@@ -137,7 +140,22 @@ public class ClienteServiceImpl implements IClienteService {
 	public Page<Urbanizacion> findAllU(Pageable pageable) {
 		return urbanizacionDao.findAll(pageable);
 	}
+	
+//	VIDEO
+	@Override
+	@Transactional(readOnly = true)
+	public List<Video> findByTitulo(String term) {
 
+		return videoDao.findByTituloLikeIgnoreCase("%" + term + "%");
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public Video findVideoById(Long id) {
+		// TODO Auto-generated method stub
+		return videoDao.findById(id).orElse(null);
+	}
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Video> findAllV() {
@@ -152,20 +170,12 @@ public class ClienteServiceImpl implements IClienteService {
 		return videoDao.findAll(pageable);
 	}
 	
-	 
 
 	@Override
 	@Transactional(readOnly = true)
 	public Video findOneV(Long id) {
 		// TODO Auto-generated method stub
 		return videoDao.findById(id).orElse(null);
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public List<Genero2> findByGenero(String term) {
-		// TODO Auto-generated method stub
-		return generoDao.findByGeneroLikeIgnoreCase("%" + term + "%");
 	}
 
 	@Override
@@ -181,29 +191,79 @@ public class ClienteServiceImpl implements IClienteService {
 		videoDao.deleteById(id);
 	}
 
-	@Override
-	@Transactional(readOnly = true)
-	public DetalleFicha findOneFicha(Long id) {
-		// TODO Auto-generated method stub
-		return detallefichaDao.findById(id).orElse(null);
-	}
 
+//IDIOMA
 	@Override
 	@Transactional(readOnly = true)
 	public List<Idioma> findAllI() {
 		// TODO Auto-generated method stub
 		return  (List<Idioma>) idiomaDao.findAll();
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Idioma> findAllI(Pageable pageable) {
+		return idiomaDao.findAll(pageable);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Idioma findOneI(Long id) {
+		// TODO Auto-generated method stub
+		return idiomaDao.findById(id).orElse(null);
+	}
+	
+	@Override
+	@Transactional
+	public void saveIdioma(Idioma idioma) {
+		// TODO Auto-generated method stub
+		idiomaDao.save(idioma);
+	}
+
+	@Override
+	@Transactional
+	public void deleteI(Long id) {
+		idiomaDao.deleteById(id);
+	}
+	
+//GENERO
+	@Override
+	@Transactional(readOnly = true)
+	public List<Genero2> findByGenero(String term) {
+		// TODO Auto-generated method stub
+		return generoDao.findByGeneroLikeIgnoreCase("%" + term + "%");
+	}
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Genero2> findAllG() {
 		// TODO Auto-generated method stub
 		return  (List<Genero2>) generoDao.findAll();
 	}
+	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Formato> findAllF() {
+	public Page<Genero2> findAllG(Pageable pageable) {
+		return generoDao.findAll(pageable);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Genero2 findOneG(Long id) {
 		// TODO Auto-generated method stub
-		return  (List<Formato>) formatoDao.findAll();
+		return generoDao.findById(id).orElse(null);
+	}
+	
+	@Override
+	@Transactional
+	public void saveGenero(Genero2 genero) {
+		// TODO Auto-generated method stub
+		generoDao.save(genero);
+	}
+	
+	@Override
+	@Transactional
+	public void deleteG(Long id) {
+		generoDao.deleteById(id);
 	}
 }
