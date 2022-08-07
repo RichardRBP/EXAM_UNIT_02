@@ -62,5 +62,4 @@ public interface IClienteService {
 	public void saveGenero(Genero2 genero);
 	public void deleteG(Long id);
 	
-
 }
