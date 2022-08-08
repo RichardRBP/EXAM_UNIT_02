@@ -48,11 +48,11 @@ INSERT INTO fichas (fecha_alquiler, fecha_entrega, costo, mora, comentarios, dev
 INSERT INTO fichas (fecha_alquiler, fecha_entrega, costo, mora, comentarios, devuelto, cliente_id) VALUES('2022-07-25','2022-08-05',50,'sin mora','sin comentarios', 'pendiente', 3);
 
 
-INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Jurasic Park', 2022, 10,42.51,'','qehG9dKVDG4',6,1,2,4);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Dr Strange-multiverso', 2022, 10,10.51,'','KREBGtEeW9U',2,2,3,3);
-INSERT INTO videos (titulo, anio, cantidad, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Spider Man ', 2022, 10,12.00,'','JfVOs4VSpmA',1,1,5,2);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Thor 4', 2022, 10,5.20,'','meNfg26orQI',7,3,4,5);
-INSERT INTO videos (titulo, anio, cantidad, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Morbius', 2022, 10,9.20,'','oZ6iiRrz1SY',5,4,2,3);
+INSERT INTO videos (titulo,duracion, anio, cantidad,descripcion, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Jurasic Park',125, 2020, 10,'Mundo Jurasico Veintidos años despues de lo ocurrido en Jurassic Park, la isla Nublar ha sido transformada en un parque tematico.',42.51,'','qehG9dKVDG4',6,1,2,4);
+INSERT INTO videos (titulo,duracion, anio, cantidad,descripcion, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Dr Strange-multiverso',130, 2022, 10,'La vida del Dr. Stephen Strange cambia para siempre tras un accidente automovilistico que le deja muy malheridas sus manos. Cuando la medicina tradicional falla',10.51,'','KREBGtEeW9U',2,2,3,3);
+INSERT INTO videos (titulo,duracion, anio, cantidad,descripcion, precio ,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Spider Man ',90, 2021, 10,'Peter Parker está desenmascarado y ya no puede separar su vida normal de las altas apuestas de ser un superheroe. Cuando le pide ayuda al Doctor Strange',12.00,'','JfVOs4VSpmA',1,1,5,2);
+INSERT INTO videos (titulo,duracion, anio, cantidad,descripcion, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Thor 4',105, 2022, 10, 'Cuarta pelicula sobre «Thor» del MCU, en la que el Dios del trueno contara con Lady Thor como acompañante, personaje que interpretara Natalie Portman.',5.20,'','meNfg26orQI',7,3,4,5);
+INSERT INTO videos (titulo,duracion, anio, cantidad,descripcion, precio,imagen_portada, trailer,mes,formato_id, idioma_id,genero_id) VALUES('Morbius',135, 2022, 10,'Peligrosamente enfermo de un extraño trastorno sanguineo, y determinado a salvar a otras personas que padecen su mismo destino.',9.20,'','oZ6iiRrz1SY',5,4,2,3);
 
 
 INSERT INTO fichas_items (ficha_id, video_id) VALUES(1, 1);

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
+<head th:replace="layout/base :: head"></head>
 <body>
 
-	<header th:replace="layout/layout :: header"></header>
+	<header th:replace="layout/base :: header"></header>
 
 	<div class="container py-4">
 
-		<div class="card bg-light">
+		<div class="card oscuro">
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 
@@ -47,14 +47,14 @@
 						<th>Eliminar</th>
 					</tr>
 					</thead>
-					<tbody>
-					<tr th:each="ficha: ${cliente.fichas}">
-						<td th:text="${ficha.id}"></td>
-						<td th:text="${ficha.fechaAlquiler}"></td>
-						<td th:text="${ficha.fechaEntrega}"></td>
-						<td th:text="${ficha.comentarios}"></td>
-						<td th:text="${ficha.devuelto}"></td>
-						<td th:text="${ficha.costo}"></td>
+					<tbody class="oscuro">
+					<tr th:each="ficha: ${cliente.fichas}"  class="oscuro">
+						<td th:text="${ficha.id}"  class="oscuro"></td>
+						<td th:text="${ficha.fechaAlquiler}"  class="oscuro"></td>
+						<td th:text="${ficha.fechaEntrega}"  class="oscuro"></td>
+						<td th:text="${ficha.comentarios}"  class="oscuro"></td>
+						<td th:text="${ficha.devuelto}"  class="oscuro"></td>
+						<td th:text="${ficha.costo}"  class="oscuro"></td>
 						<td><a class="btn btn-primary btn-sm" th:href="@{'/ficha/ver/' + ${ficha.id}}" th:text="'detalle'"></a></td>
 						<td><a class="btn btn-danger btn-sm" th:href="@{'/ficha/eliminarFicha/' + ${ficha.id}}" th:text="'eliminar'"
 							   onclick="return confirm('¿Estas seguro que desea eliminar la ficha?');"></a></td>
@@ -66,6 +66,6 @@
 
 	</div>
 
-	<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/base :: footer"></footer>
 </body>
 </html>

@@ -118,7 +118,9 @@ public class ClienteController {
 		}
 		model.put("cliente", cliente);
 		model.put("titulo", "Editar Cliente");
-		return "cliente/form";
+		//model.put("urbanizaciones", clienteService.findAllU(id);
+		return "cliente/form"; 
+
 	}
 
 	@PostMapping("/form")
@@ -143,7 +145,7 @@ public class ClienteController {
 				e.printStackTrace();
 			}
 
-			flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
+			//flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
 
 			cliente.setFoto(uniqueFilename);
 		}
@@ -153,7 +155,7 @@ public class ClienteController {
 		clienteService.save(cliente);
 		status.setComplete();
 
-		flash.addFlashAttribute("success", "Factura creada con éxito!");
+		flash.addFlashAttribute("success", "Cliente creado con éxito!");
 
 		 
 		return "redirect:/cliente/listar"; 

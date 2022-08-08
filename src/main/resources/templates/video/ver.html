@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/base :: head"></head>
+  
+    <link
+      rel="stylesheet"
+      id="BC_Theme-css"
+      href="https://ww1.cuevana3.me/wp-content/themes/cuevana3/public/css/peli-public.css?ver=1.4.84"
+      type="text/css"
+      media="all"
+    />
+           
+
+  <body>
+    <header th:replace="layout/base :: header"></header>
+
+    <div id="aa-wp"> 
+        <div class="bd" id="top-single" data-id="55973">
+          <div class="backdrop">
+            <article class="TPost movtv-info cont">
+              <div class="Image">
+                <figure>
+                  <img
+                     th:src="@{'/uploads/' + ${video.imagenPortada}}"
+                            th:alt="${video.imagenPortada}"
+                    data-src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/69fJdmJOi1SuEqVf0za8I9YOYbD.jpg"
+                    alt="Morbius"
+                    class="lazy"
+                  />
+                </figure>
+                <div class="addlist">
+                  <button
+                    type="button"
+                    class="Button aa-mdl on"
+                    data-mdl="mdl-login"
+                  >
+                    <i class="fa-plus-square"></i>Agregar a...
+                    <i class="fa-chevron-down ddw"></i>
+                  </button>
+                </div>
+              </div>
+              <header>
+                <h1 class="Title" th:text="${video.titulo}"> </h1>
+                <h2 class="SubTitle" th:text="${video.titulo}"> </h2>
+              </header>
+              <footer>
+                <div class="VotesCn">
+                  <div class="Prct">
+                    <div
+                      id="TPVotes"
+                      data-percent="83"
+                      class="percircle animate gt50"
+                    >
+                      <span>90</span>
+                      <div class="slice">
+                        <div
+                          class="bar"
+                          style="transform: rotate(298.8deg)"
+                        ></div>
+                        <div class="fill"></div>
+                      </div>
+                      <span>90</span>
+                      <div class="slice">
+                        <div
+                          class="bar"
+                          style="transform: rotate(298.8deg)"
+                        ></div>
+                        <div class="fill"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    id="post-ratings-55973"
+                    class="post-ratings"
+                    itemscope=""
+                    itemtype="https://schema.org/Article"
+                    data-nonce="1c13238e15"
+                  >
+                    <img
+                      id="rating_55973_1"
+                      src="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"
+                      alt="1 estrella"
+                      title="1 estrella"
+                      onmouseover="current_rating(55973, 1, '1 estrella');"
+                      onmouseout="ratings_off(4.1, 0, 0);"
+                      onclick="rate_post();"
+                      onkeypress="rate_post();"
+                      style="cursor: pointer; border: 0px"
+                    /><img
+                      id="rating_55973_2"
+                      src="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"
+                      alt="2 estrellas"
+                      title="2 estrellas"
+                      onmouseover="current_rating(55973, 2, '2 estrellas');"
+                      onmouseout="ratings_off(4.1, 0, 0);"
+                      onclick="rate_post();"
+                      onkeypress="rate_post();"
+                      style="cursor: pointer; border: 0px"
+                    /><img
+                      id="rating_55973_3"
+                      src="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"
+                      alt="3 estrellas"
+                      title="3 estrellas"
+                      onmouseover="current_rating(55973, 3, '3 estrellas');"
+                      onmouseout="ratings_off(4.1, 0, 0);"
+                      onclick="rate_post();"
+                      onkeypress="rate_post();"
+                      style="cursor: pointer; border: 0px"
+                    /><img
+                      id="rating_55973_4"
+                      src="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"
+                      alt="4 estrellas"
+                      title="4 estrellas"
+                      onmouseover="current_rating(55973, 4, '4 estrellas');"
+                      onmouseout="ratings_off(4.1, 0, 0);"
+                      onclick="rate_post();"
+                      onkeypress="rate_post();"
+                      style="cursor: pointer; border: 0px"
+                    />
+                    <img
+                      id="rating_55973_5"
+                      src="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/images/stars/rating_off.gif"
+                      alt="5 estrellas"
+                      title="5 estrellas"
+                      onmouseover="current_rating(55973, 5, '5 estrellas');"
+                      onmouseout="ratings_off(4.1, 0, 0);"
+                      onclick="rate_post();"
+                      onkeypress="rate_post();"
+                      style="cursor: pointer; border: 0px"
+                    />
+                    (<strong>1.965</strong> votos, promedio:
+                    <strong>4.8</strong> de 5)<br /><span
+                      class="post-ratings-text"
+                      id="ratings_55973_text"
+                    ></span
+                    >   
+                    
+                    <div
+                      style="display: none"
+                      itemprop="publisher"
+                      itemscope=""
+                      itemtype="https://schema.org/Organization"
+                    >
+                      <meta
+                        itemprop="name"
+                        content="Cuevana 3 | Todas las Peliculas de Cuevana"
+                      /><meta itemprop="url" content="https://ww1.cuevana3.me" />
+                      <div
+                        itemprop="logo"
+                        itemscope=""
+                        itemtype="https://schema.org/ImageObject"
+                      >
+                        
+                      </div>
+                    </div>
+                     
+                  </div>
+                 
+                </div>
+                <p class="meta">
+                  <span th:text="${video.duracion} + -Minutos">  </span> <span th:text="${video.anio}"> </span>
+                  <span class="Qlty" th:text="${video.formato.formato}"> </span>
+                </p>
+                <ul class="ListPOpt">
+                  <li class="fa-share-alt">Compartir</li>
+                  <li>
+                    <a
+                      rel="nofollow"
+                      onclick="window.open ('http://www.facebook.com/share.php?u=https://ww1.cuevana3.me/55973/morbius/&amp;title=Morbius', 'Facebook', 'toolbar=0, status=0, width=650, height=450');"
+                      href="javascript: void(0);"
+                      title="Share On Facebook"
+                      class="Fcb fa-facebook-f fab"
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      rel="nofollow"
+                      onclick="window.open ('http://twitter.com/intent/tweet?status=Morbius+https://ww1.cuevana3.me/55973/morbius/', 'Facebook', 'toolbar=0, status=0, width=650, height=450');"
+                      href="javascript: void(0);"
+                      title="Share On Twitter"
+                      class="Twt fa-twitter fab"
+                    ></a>
+                  </li>
+                </ul>
+              </footer>
+              <div class="Description">
+                <p th:text="${video.descripcion}">
+                  
+                </p>
+              </div>
+              <div class="MvTbCn on anmt" id="MvTb-Info">
+                <ul class="InfoList">
+                  <li class="AAIco-adjust">
+                    <strong>Idioma:</strong>
+                    <span class="color-w" th:text="${video.idioma.idioma}"> </span>
+                  </li>
+                  <li class="AAIco-adjust">
+                    <strong>Genero:</strong>
+                    <span class="color-w" th:text="${video.genero.genero}"></span>
+                  </li>
+                  <li class="AAIco-adjust">
+                    <strong>Formato:</strong>
+                    <span class="color-w" th:text="${video.formato.formato}"></span>
+                  </li>
+                   
+                   
+                </ul>
+              </div>
+            </article>
+            <div class="Image">
+              <figure class="Objf">
+                <img
+                th:src="@{'/uploads/' + ${video.imagenPortada}}"
+                th:alt="${video.imagenPortada}"
+                  class="lazy"
+                  data-src="https://image.tmdb.org/t/p/w1280/tj4lzGgHrfjnjVqAKkLIjFqPSyO.jpg"
+                  alt="img"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="video cont">
+           
+           
+            <iframe width="1092" height="500" title="YouTube video player" frameborder="0" 
+            src="EA4v3wl7faA"
+            th:src="@{'https://www.youtube.com/embed/' + ${video.trailer}}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+        </div>
+  
+     
+      </div>
+      </div>
+    <footer th:replace="layout/base :: footer"></footer>
+    <style>
+        .fa,
+        .fab,
+        .fal,
+        .far,
+        .fas {
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+        }
+        
+           
+        .fa-facebook-f:before {
+          content: "\f39e";
+        } 
+        .fa-plus-square:before {
+          content: "\f0fe";
+        }
+         .fa-share-alt:before {
+          content: "\f1e0";
+        }
+         .fa-twitter:before {
+          content: "\f099";
+        }
+        
+         
+         
+        @font-face {
+          font-family: "Font Awesome 5 Brands";
+          font-display: swap;
+          font-style: normal;
+          font-weight: normal;
+          src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.eot);
+          src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.eot?#iefix)
+              format("embedded-opentype"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.woff2)
+              format("woff2"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.woff)
+              format("woff"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.ttf)
+              format("truetype"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-brands-400.svg#fontawesome)
+              format("svg");
+              
+        }
+      
+        @font-face {
+          font-family: "Font Awesome 5 Free";
+          font-display: swap;
+          font-style: normal;
+          font-weight: 900;
+          src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot);
+          src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot?#iefix)
+              format("embedded-opentype"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff2)
+              format("woff2"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff)
+              format("woff"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.ttf)
+              format("truetype"),
+            url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.svg#fontawesome)
+              format("svg");
+        }
+        
+      </style>
+  </body>
+</html>

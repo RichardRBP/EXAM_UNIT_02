@@ -47,6 +47,20 @@ public class VideoController {
 	
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
+	@GetMapping(value = "/ver/{id}")
+	public String ver(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
+
+		Video video = videoService.findOneV(id);
+		if (video == null) {
+			flash.addFlashAttribute("error", "El video no existe en la base de datos");
+			return "redirect:/video/listar";
+		}
+
+		model.put("video", video);
+		model.put("titulo", "Detalle Video: " + video.getTitulo());
+		return "video/ver";
+	}
+
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
 	public String listar(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
 
@@ -109,7 +123,7 @@ public class VideoController {
 				e.printStackTrace();
 			}
 
-			flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
+			//flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
 
 			video.setImagenPortada(uniqueFilename);
 		}
@@ -124,7 +138,7 @@ public class VideoController {
 		videoService.saveVideo(video);
 		status.setComplete();
 
-		flash.addFlashAttribute("success", "Video creada con éxito!");
+		flash.addFlashAttribute("success", "Video creado con éxito!");
 
 		 
 		return "redirect:/video/listar"; 

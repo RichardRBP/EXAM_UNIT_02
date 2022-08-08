@@ -32,7 +32,7 @@
 						<label for="fechaAlquiler" class="col-sm-2 col-form-label"
 							th:text="'fechaAlquiler'"></label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{fechaAlquiler}" class="form-control" th:errorclass="'form-control is-invalid'" />
+							<input type="date" th:field="*{fechaAlquiler}" class="form-control" th:errorclass="'form-control is-invalid'" />
 							<div class="invalid-feedback" th:if="${#fields.hasErrors('fechaAlquiler')}" th:errors="*{fechaAlquiler}"></div>
 						</div>
 					</div>
@@ -41,7 +41,7 @@
 						<label for="fechaEntrega" class="col-sm-2 col-form-label"
 							th:text="'fechaEntrega'"></label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{fechaEntrega}" class="form-control" th:errorclass="'form-control is-invalid'" />
+							<input type="date" th:field="*{fechaEntrega}" class="form-control" th:errorclass="'form-control is-invalid'" />
 							<div class="invalid-feedback" th:if="${#fields.hasErrors('fechaEntrega')}" th:errors="*{fechaEntrega}"></div>
 						</div>
 					</div>

@@ -1,55 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
- <style>
-	.cardvideo:hover {
-		background-color: aqua;	
-	}
+  <head th:replace="layout/base :: head"></head>
+  <link
+    rel="stylesheet"
+    id="BC_Theme-css"
+    href="https://ww1.cuevana3.me/wp-content/themes/cuevana3/public/css/peli-public.css?ver=1.4.84"
+    type="text/css"
+    media="all"
+  />
 
-	 
-						
-								 
- </style>
-<body>
+  <body>
+    <header th:replace="layout/base :: header"></header>
 
-	<header th:replace="layout/layout :: header">  
-		
-	</header>
+    <div class="container py-4">
+      <div class="row">
+        <div class="col" style="color: white">LOS MEJORES VIDEOS</div>
+      </div>
+    </div>
 
-	<div class="container py-4">
-		<div class="row">
-			<div class="col">
-				
-			</div>
-		</div>
-
-		<div class="card bg-light">
-			<div class="card-header" th:text="${titulo}"></div>
-			<div class="card-body">
-
-				<div class="row">
-					<div class="col col-4" th:each="item: ${videos}"> 
-						<div class="card cardvideo"   >
-						 <img th:if="${#strings.length(item.imagenPortada) > 0}"
-								class="img-thumbnail rounded float-left" style="max-width: 286PX; max-height: 170px;"
-								th:src="@{'/uploads/' + ${item.imagenPortada}}" th:alt="${item.imagenPortada}" />
-							 
-								<div class="card-body cardvideo">
-								 
-									<i class="fas fa-tasks" aria-hidden="true"></i>    
-								  
-								<p class="card-text cardvideo">[[${item.titulo}]] </p>
-							 
-							</div>
-						  </div>
-					</div>
-				</div>
-				 
-			</div>
-		</div>
-
-	</div>
-
-	<footer th:replace="layout/layout :: footer"></footer>
-</body>
+    <div id="aa-wp">
+      <div class="bd">
+        <div class="TpRwCont cont">
+          <main>
+            <section>
+              <ul class="MovieList Rows">
+                <li class="xxx TPostMv" th:each="item: ${videos}">
+                  <div
+                    class="TPost C post-7544 post type-post status-publish format-standard has-post-thumbnail hentry"
+                  >
+                    <a th:href="@{/video/ver/} + ${item.id}" 
+                      ><div class="Image">
+                        <span class="Year" th:text="${item.anio}"></span>
+                        <figure class="Objf TpMvPlay AAIco-play_arrow">
+                          <img
+                            width="160"
+                            height="242"
+                            data-src="https://ww1.cuevana3.me/wp-content/uploads/2022/07/thor-love-and-thunder-59691-poster-100x100.jpg"
+                            class="lazy attachment-thumbnail size-thumbnail wp-post-image"
+                            alt="img"
+                            th:src="@{'/uploads/' + ${item.imagenPortada}}"
+                            th:alt="${item.imagenPortada}"
+                          />
+                        </figure>
+                      </div>
+                      <h2 class="Title" th:text="${item.titulo}"></h2>
+                    </a>
+                    <div class="TPMvCn anmt">
+                      <div class="Title" th:text="${item.titulo}"></div>
+                      <p class="Info">
+                        <span class="Vote AAIco-star">4.8</span>
+                        <span
+                          class="Time AAIco-access_time"
+                          th:text="${item.duracion}+ -minutos"
+                        >
+                        </span>
+                        <span
+                          class="Date AAIco-date_range"
+                          th:text="${item.anio}"
+                        >
+                        </span>
+                        <span class="Qlty" th:text="${item.formato.formato}">
+                        </span>
+                      </p>
+                      <div class="Description">
+                        <p></p>
+                        <p th:text="${item.descripcion}"></p>
+                        <p></p>
+                        <p class="Director AAIco-videocam">
+                          <span>Formato:</span>
+                          <span th:text="${item.formato.formato}"></span>
+                        </p>
+                        <p class="Genre AAIco-movie_creation">
+                          <span>Género:</span>
+                          <span th:text="${item.genero.genero}"> </span>
+                        </p>
+                        <p class="Actors AAIco-person">
+                          <span>Idioma:</span>
+                          <span th:text="${item.idioma.idioma}"></span>
+                        </p>
+                      </div>
+                      <img
+                        width="160"
+                        height="242"
+                        data-src="https://ww1.cuevana3.me/wp-content/uploads/2022/07/thor-love-and-thunder-59691-poster-100x100.jpg"
+                        class="lazy attachment-thumbnail size-thumbnail wp-post-image bg"
+                        alt="img"
+                        th:src="@{'/uploads/' + ${item.imagenPortada}}"
+                        th:alt="${item.imagenPortada}"
+                      />
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layout/base :: footer"></footer>
+    <style>
+      @font-face {
+        font-family: "Font Awesome 5 Free";
+        font-display: swap;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot);
+        src: url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot?#iefix)
+            format("embedded-opentype"),
+          url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff2)
+            format("woff2"),
+          url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff)
+            format("woff"),
+          url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.ttf)
+            format("truetype"),
+          url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.svg#fontawesome)
+            format("svg");
+      }
+    </style>
+  </body>
 </html>

@@ -5,12 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/login.css">
+ 
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>BIENVENIDO</title>
+    <link
+      rel="stylesheet"
+      id="BC_Theme-css"
+      href="https://ww1.cuevana3.me/wp-content/themes/cuevana3/public/css/peli-public.css?ver=1.4.84"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="wp-postratings-css"
+      href="https://ww1.cuevana3.me/wp-content/plugins/wp-postratings/css/postratings-css.css?ver=1.89"
+      type="text/css"
+      media="all"
+    />
 </head>
 
 <body>
@@ -28,7 +43,9 @@
             <input type="text" placeholder="Nombre">
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Contraseña">
-            <input type="button" value="Registrarse">
+            <a href="/inicio">
+        		<input type="button" value="Registrarse">
+   			 </a>
         </form>
     </div>
     <div class="container-form sign-in">
@@ -38,7 +55,7 @@
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Contraseña">
             
-            <a href="file:///E:/01)%20UNT/2022/UNT%202022-I/03)%20INGENIERÍA%20WEB-I/LABS%20DEL%20CICLO/02%20UNIDAD/EXAMEN%20II%20UNIDAD/EXAM_UNIT_02/src/main/resources/templates/INICIO.html#">
+            <a href="/inicio">
         		<input type="button" value="Iniciar sesión">
    			 </a>
    			 
@@ -47,11 +64,11 @@
             <div class="message">
                 <h2>Bienvenido de nuevo</h2>
                 <p>Si aun no tienes una cuenta por favor registrese aqui</p>
-                <button class="sign-in-btn" style="background-color:black">Registrarse</button>
+                <button class="sign-in-btn" style="background-color:black" >Registrarse</button>
             </div>
         </div>
     </div>
-    <script src="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/js/login.js"></script>
+   <script th:src="@{/js/login.js}"></script>
 </body>
 
 </html>

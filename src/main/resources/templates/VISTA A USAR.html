@@ -10,12 +10,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/header.css">
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/overlay.css">
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/slider.css">
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/disney.css">
-    <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/film.css">
-        <link rel="stylesheet" href="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/css/stilito.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/overlay.css}">
+    <link rel="stylesheet" th:href="@{/css/slider.css}">
+    <link rel="stylesheet" th:href="@{/css/disney.css}">
+    <link rel="stylesheet" th:href="@{/css/film.css}">
+    <link rel="stylesheet" href="@{/css/stilito.css}">
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Blockbuster_logo.svg/1200px-Blockbuster_logo.svg.png" type="image/x-icon">
  
     <title>EXAMEN II UNIDAD</title>
@@ -83,7 +83,7 @@
         <div class="profile">
             <div class="profile-selected">
                 <p class="name-user">Mi Perfil</p>
-                <img class="avatar img-user" src="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/img/perfil/perfil2.png" alt="">
+                <img class="avatar img-user" src="">
             </div>
             <!-- Profile-nav / Add Javacript - Change Img / Change Text -->
             <nav class="profile-nav">
@@ -94,7 +94,7 @@
                 <!-- Usuario -->
                 <ul class="profile-nav-options">
 
-                    <li><a href="file:///E:/01)%20UNT/2022/UNT%202022-I/03)%20INGENIERÍA%20WEB-I/LABS%20DEL%20CICLO/02%20UNIDAD/EXAMEN%20II%20UNIDAD/EXAM_UNIT_02/src/main/resources/templates/login.html#"><p>Cerrar sesión</p></a></li>
+                    <li><a href=""><p>Cerrar sesión</p></a></li>
                 </ul>
             </nav>
         </div>
@@ -120,7 +120,7 @@
 <!-- Scripts Slider JS -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'></script>
-<script src="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/js/script.js"></script>
-<script src="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/js/scroll.js"></script>
-<script src="E:/01) UNT/2022/UNT 2022-I/03) INGENIERÍA WEB-I/LABS DEL CICLO/02 UNIDAD/EXAMEN II UNIDAD/EXAM_UNIT_02/src/main/resources/static/js/slider.js"></script>
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/scroll.js}"></script>
+<script th:src="@{/js/slider.js}"></script>
 </html>

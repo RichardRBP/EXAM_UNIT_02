@@ -32,6 +32,8 @@ public class Video implements Serializable {
     @NotEmpty
     private String titulo;
     @NotNull
+    private Integer duracion;
+    @NotNull
     private Integer anio;
     @NotNull
     private Integer cantidad;
@@ -184,6 +186,16 @@ public class Video implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
     }
 
 

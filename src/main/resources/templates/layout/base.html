@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN Slick Slider -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   
+    <!-- Styles CSS -->
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/overlay.css}">
+
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Blockbuster_logo.svg/1200px-Blockbuster_logo.svg.png" type="image/x-icon">
+ <!-- estilos de layout --> 
+    
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .oscuro{
+        background-color:rgb(48, 48, 68);
+        color: white;
+      }
+    </style>
+    <title>EXAMEN II UNIDAD</title>
+</head>
+<body>
+    <!-- Overlay / Add Script Js: Add and Remove-->
+
+    <!-- Header -->
+    <header class="header">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="/inicio">
+                            <span class="icons"><svg alt="home" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M26.882 19.414v10.454h-5.974v-5.227h-5.974v5.227H8.961V19.414H5.227L17.921 6.72l12.694 12.694h-3.733z"></path></svg></span>
+                            <p class="name-tag">inicio</p>
+                        </a>
+                    </li>
+                    
+                    <li><a href="/cliente/listar">
+                            <span class="icons"><svg alt="plus" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M27.85 15.1H20.9V8.15a2.9 2.9 0 0 0-5.8 0v6.95H8.15a2.9 2.9 0 0 0 0 5.8h6.95v6.95a2.9 2.9 0 0 0 5.8 0V20.9h6.95a2.9 2.9 0 1 0 0-5.8z"></path></svg></span>
+                            <p class="name-tag">Clientes</p>
+                        </a>
+                    </li>
+                    <li class="hidden-p"><a href="/video/listar">
+                        <span class="icons"><svg alt="star" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M17.625 26.028L10.44 30l1.373-8.412L6 15.631l8.033-1.228 3.592-7.653 3.592 7.653 8.033 1.228-5.813 5.957L24.81 30z"></path></svg></span>
+                        <p class="name-tag">Videos</p>
+                        </a>
+                    </li>
+                    <li class="hidden-p"><a href="/genero/listarGen">
+                        <span class="icons"><svg alt="film" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M24.71 20.07a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m-12.262 0a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m6.173-10.31a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m0 12.262a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m-1.544-4.629a.846.846 0 1 0-1.197 1.196.846.846 0 0 0 1.197-1.196m18.06-.644c-3.33 6.913-8.165 9.928-11.635 11.24-2.57.971-4.762 1.178-5.949 1.208-.348.032-.698.053-1.052.053C10.287 29.25 5.25 24.213 5.25 18S10.287 6.75 16.5 6.75c6.214 0 11.25 5.037 11.25 11.25a11.19 11.19 0 0 1-2.493 7.054c2.832-1.612 5.844-4.382 8.138-9.143a.968.968 0 0 1 1.742.838"></path></svg></span>
+                        <p class="name-tag">Generos</p>
+                        </a>
+                    </li>
+                    <li class="hidden-p"><a href="/idioma/listarIdiom">
+                      <span class="icons"><svg alt="film" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M24.71 20.07a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m-12.262 0a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m6.173-10.31a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m0 12.262a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m-1.544-4.629a.846.846 0 1 0-1.197 1.196.846.846 0 0 0 1.197-1.196m18.06-.644c-3.33 6.913-8.165 9.928-11.635 11.24-2.57.971-4.762 1.178-5.949 1.208-.348.032-.698.053-1.052.053C10.287 29.25 5.25 24.213 5.25 18S10.287 6.75 16.5 6.75c6.214 0 11.25 5.037 11.25 11.25a11.19 11.19 0 0 1-2.493 7.054c2.832-1.612 5.844-4.382 8.138-9.143a.968.968 0 0 1 1.742.838"></path></svg></span>
+                      <p class="name-tag">Idiomas</p>
+                      </a>
+                  </li>
+                  <li class="hidden-p"><a href="/formato/listar">
+                    <span class="icons"><svg alt="film" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M24.71 20.07a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m-12.262 0a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m6.173-10.31a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m0 12.262a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m-1.544-4.629a.846.846 0 1 0-1.197 1.196.846.846 0 0 0 1.197-1.196m18.06-.644c-3.33 6.913-8.165 9.928-11.635 11.24-2.57.971-4.762 1.178-5.949 1.208-.348.032-.698.053-1.052.053C10.287 29.25 5.25 24.213 5.25 18S10.287 6.75 16.5 6.75c6.214 0 11.25 5.037 11.25 11.25a11.19 11.19 0 0 1-2.493 7.054c2.832-1.612 5.844-4.382 8.138-9.143a.968.968 0 0 1 1.742.838"></path></svg></span>
+                    <p class="name-tag">Formatos</p>
+                    </a>
+                </li>
+                <li class="hidden-p"><a href="/ficha/listar">
+                  <span class="icons"><svg alt="film" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M24.71 20.07a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m-12.262 0a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m6.173-10.31a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m0 12.262a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m-1.544-4.629a.846.846 0 1 0-1.197 1.196.846.846 0 0 0 1.197-1.196m18.06-.644c-3.33 6.913-8.165 9.928-11.635 11.24-2.57.971-4.762 1.178-5.949 1.208-.348.032-.698.053-1.052.053C10.287 29.25 5.25 24.213 5.25 18S10.287 6.75 16.5 6.75c6.214 0 11.25 5.037 11.25 11.25a11.19 11.19 0 0 1-2.493 7.054c2.832-1.612 5.844-4.382 8.138-9.143a.968.968 0 0 1 1.742.838"></path></svg></span>
+                  <p class="name-tag">Fichas</p>
+                  </a>
+              </li>
+              <li class="hidden-p"><a href="/urbanizacion/listar">
+                <span class="icons"><svg alt="film" viewBox="0 0 36 36" style="height: 24px; min-width: 24px; width: 24px; z-index: auto;"><path d="M24.71 20.07a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m-12.262 0a2.97 2.97 0 1 0-4.2-4.2 2.97 2.97 0 0 0 4.2 4.2m6.173-10.31a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m0 12.262a2.969 2.969 0 1 0-4.199 4.198 2.969 2.969 0 0 0 4.199-4.198m-1.544-4.629a.846.846 0 1 0-1.197 1.196.846.846 0 0 0 1.197-1.196m18.06-.644c-3.33 6.913-8.165 9.928-11.635 11.24-2.57.971-4.762 1.178-5.949 1.208-.348.032-.698.053-1.052.053C10.287 29.25 5.25 24.213 5.25 18S10.287 6.75 16.5 6.75c6.214 0 11.25 5.037 11.25 11.25a11.19 11.19 0 0 1-2.493 7.054c2.832-1.612 5.844-4.382 8.138-9.143a.968.968 0 0 1 1.742.838"></path></svg></span>
+                <p class="name-tag">Urbanizaciones</p>
+                </a>
+            </li>
+                   
+                </ul>
+            </nav>
+        <!-- Profile -->
+        <div class="profile">
+            <div class="profile-selected">
+                <p class="name-user">Mi Perfil</p>
+                <img class="avatar img-user" th:src="@{/img/perfil/perfil2.png}" alt="">
+            </div>
+            <!-- Profile-nav / Add Javacript - Change Img / Change Text -->
+            <nav class="profile-nav">
+                <ul class="profile-nav-profiles">
+                   
+                  
+                </ul>
+                <!-- Usuario -->
+                <ul class="profile-nav-options">
+               
+                    <li><a th:href="@{/login}"><p>Cerrar sesión</p></a></li> 
+                	
+                </ul>
+            </nav>
+        </div>
+        
+      <div
+      class="alert alert-success"
+      th:if="${success != null}"
+      th:text="${success}"
+    ></div>
+    <div
+      class="alert alert-danger"
+      th:if="${error != null}"
+      th:text="${error}"
+    ></div>
+    <div
+      class="alert alert-warning"
+      th:if="${warning != null}"
+      th:text="${warning}"
+    ></div>
+    <div
+      class="alert alert-info"
+      th:if="${info != null}"
+      th:text="${info}"
+    ></div>
+    </header>
+    <body th:fragment="body">
+      
+    </body>
+    <footer th:fragment="footer" class="container">
+      <hr />
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Bootstrap JS -->
+       
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"
+      ></script>
+       
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'></script>
+      <script th:src="@{/js/script.js}"></script>
+      <script th:src="@{/js/scroll.js}"></script>
+      <script th:src="@{/js/slider.js}"></script>
+
+      <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+      <script th:src="@{/js/popper.min.js}"></script>
+      <script th:src="@{/js/bootstrap.min.js}"></script>
+      <script th:src="@{/js/jquery-ui.min.js}"></script>
+       
+
+    </footer> 
+    
+</body>
+<!-- Scripts Slider JS -->
+
+</html>

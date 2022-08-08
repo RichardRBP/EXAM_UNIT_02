@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
+<head th:replace="layout/base :: head"></head>
 <body>
 
-	<header th:replace="layout/layout :: header"></header>
+	<header th:replace="layout/base :: header"></header>
 
 	<div class="container py-4">
 
-		<div class="card bg-light">
+		<div class="card oscuro">
 			<div class="card-header" th:text="${titulo}"></div>
-			<div class="card-body">
+			<div class="card-body ">
 
 				<h4 class="card-title">
-					<a th:href="@{/video/form}" class="btn btn-primary">crear Video</a>
+					<a th:href="@{/video/form}" class="btn btn-primary">crear Video</a> 
+					<a th:href="@{/video/verBonitos}" class="btn btn-primary">VER TODOS LOS VIDEOS</a>
 				</h4>
-				<h4 class="card-title">
-					<a th:href="@{/video/verBonitos}" class="btn btn-primary">ver videos bonitos</a>
-				</h4>
+				 
+					
+				 
 
-				<table class="table table-striped">
-					<thead>
+				<table class="table table-striped oscuro" >
+					<thead >
 						<tr>
 							<th>id</th>
                             <th>titulo</th>
@@ -27,7 +28,7 @@
 							<th>cantidad</th>
                             <th>mes</th>
 							<th>precio</th>
-                            <th>trailer</th>
+                            <th>Duracion</th>
                             <th>idioma</th>
                             <th>formato</th>
 							<th>genero</th>
@@ -35,8 +36,8 @@
 							<th>eliminar</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr th:each="item: ${videos}">
+					<tbody >
+						<tr th:each="item: ${videos}" style="color:white;">
 							<td><a class="btn btn-primary btn-xs"
 								th:href="@{/video/ver/} + ${item.id}" th:text="${item.id}"></a></td>
 							<td th:text="${item.titulo}"></td>
@@ -44,7 +45,7 @@
                             <td th:text="${item.cantidad}"></td>
                             <td th:text="${item.mes}"></td>
 							<td th:text="${item.precio}"></td>
-                            <td th:text="${item.trailer}"></td>
+                            <td th:text="${item.duracion} + -minutos"></td>
                          
 							
 						    <td th:if="${item.idioma?.idioma}" th:text="${item.idioma?.idioma}"></td>
@@ -69,6 +70,6 @@
 
 	</div>
 
-	<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/base :: footer"></footer>
 </body>
 </html>
