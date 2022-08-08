@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import com.ingenieriaweb.springboot.app.models.entity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import com.ingenieriaweb.springboot.app.models.entity.Cliente;
-import com.ingenieriaweb.springboot.app.models.entity.DetalleFicha;
-import com.ingenieriaweb.springboot.app.models.entity.Ficha;
-import com.ingenieriaweb.springboot.app.models.entity.Urbanizacion;
-import com.ingenieriaweb.springboot.app.models.entity.Video;
 import com.ingenieriaweb.springboot.app.models.service.IClienteService;
 import com.ingenieriaweb.springboot.app.util.paginator.PageRender;
 
@@ -56,6 +52,58 @@ public class UrbanizacionController {
 		model.addAttribute("urbanizaciones", urbanizacion);
 		model.addAttribute("page", pageRender);
 		return "urbanizacion/listar";
+	}
+
+	@RequestMapping(value = "/form")
+	public String crear(Map<String, Object> model) {
+
+		Urbanizacion urbanizacion = new Urbanizacion();
+		model.put("urbanizacion", urbanizacion);
+		model.put("titulo", "Formulario de Urbanizaciones");
+		return "urbanizacion/form";
+	}
+
+	@RequestMapping(value = "/form/{id}")
+	public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
+
+		Urbanizacion urbanizacion = null;
+
+		if (id > 0) {
+			urbanizacion = clienteService.findOneU(id);
+			if (urbanizacion == null) {
+				flash.addFlashAttribute("error", "El ID de la urbanización no existe en la BBDD!");
+				return "redirect:/urbanizacion/listar";
+			}
+		} else {
+			flash.addFlashAttribute("error", "El ID de la urbanizacion no puede ser cero!");
+			return "redirect:/urbanizacion/listar";
+		}
+		model.put("urbanizacion", urbanizacion);
+		model.put("titulo", "Editar urbanizacion");
+		return "urbanizacion/form";
+	}
+
+//	make the guardar and eliminar to Urbanizacion
+	@RequestMapping(value = "/form", method = RequestMethod.POST)
+	public String guardar(@Valid Urbanizacion urbanizacion, BindingResult result, Model model, RedirectAttributes flash, SessionStatus status) {
+		if (result.hasErrors()) {
+			model.addAttribute("titulo", "Formulario de Urbanizacion");
+			return "urbanizacion/form";
+		}
+
+		clienteService.saveUrbanizacion(urbanizacion);
+		status.setComplete();
+		flash.addFlashAttribute("success", "Urbanizacion creada con éxito!");
+		return "redirect:/urbanizacion/listar";
+	}
+
+	@RequestMapping(value = "/eliminar/{id}")
+	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
+		if (id > 0) {
+			clienteService.deleteU(id);
+			flash.addFlashAttribute("success", "Urbanizacion eliminada con éxito!");
+		}
+		return "redirect:/urbanizacion/listar";
 	}
 
 }
