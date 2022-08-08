@@ -114,15 +114,46 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     //FORMATO
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Formato> findByFormato(String term) {
+        // TODO Auto-generated method stub
+        return formatoDao.findByFormatoLikeIgnoreCase("%" + term + "%");
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<Formato> findAllF() {
         // TODO Auto-generated method stub
         return (List<Formato>) formatoDao.findAll();
     }
-//	URBANIZACION
 
-//	make the findByUrbanizacion function to return a list of urbanizaciones
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Formato> findAllF(Pageable pageable) {
+        return formatoDao.findAll(pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Formato findOneF(Long id) {
+        // TODO Auto-generated method stub
+        return formatoDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void saveFormato(Formato formato) {
+        formatoDao.save(formato);
+    }
+    @Override
+    @Transactional
+    public void deleteF(Long id) {
+        formatoDao.deleteById(id);
+    }
+
+//	URBANIZACION
 
     @Override
     @Transactional(readOnly = true)

@@ -12,30 +12,26 @@
 			<div class="card-body">
 
 				<h4 class="card-title">
-					<a th:href="@{/urbanizacion/form}" class="btn btn-primary">crear Urbanizacion</a>
+					<a th:href="@{/formato/form}" class="btn btn-primary">Crear Formato</a>
 				</h4>
 
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>id</th>
-							<th>nombre</th>
-							<th>distrito</th>
-                            <th>provincia</th>
+							<th>formato</th>
 							<th>editar</th>
 							<th>eliminar</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="item: ${urbanizaciones}">
+						<tr th:each="item: ${formatos}">
 							<td th:text="${item.id}"></td>
-							<td th:text="${item.nombre}"></td>
-							<td th:text="${item.distrito}"></td>
-                            <td th:text="${item.provincia}"></td>
+							<td th:text="${item.formato}"></td>
 							<td><a class="btn btn-primary btn-sm"
-								th:href="@{/urbanizacion/form/} + ${item.id}" th:text="'editar'"></a></td>
+								th:href="@{/formato/form/} + ${item.id}" th:text="'editar'"></a></td>
 							<td><a class="btn btn-danger btn-sm"
-								th:href="@{/urbanizacion/eliminar/} + ${item.id}" th:text="'eliminar'"
+								th:href="@{/formato/eliminar/} + ${item.id}" th:text="'eliminar'"
 								onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
 						</tr>
 					</tbody>

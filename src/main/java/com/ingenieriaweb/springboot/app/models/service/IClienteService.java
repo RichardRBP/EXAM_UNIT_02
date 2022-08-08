@@ -38,7 +38,18 @@ public interface IClienteService {
     public DetalleFicha findOneFicha(Long id);
 
     //	FORMATO
+
+    public List<Formato> findByFormato(String term);
+
     public List<Formato> findAllF();
+
+    public Page<Formato> findAllF(Pageable pageable);
+
+    public Formato findOneF(Long id);
+
+    public void saveFormato(Formato formato);
+
+    public void deleteF(Long id);
 
 //	URBANIZACION
 //	make the functions as the same as genero in urbanizacion
