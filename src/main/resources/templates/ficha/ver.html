@@ -14,7 +14,7 @@
 
 
             <a th:href="@{'/cliente/ver/' + ${ficha.cliente.id}}">
-                <button class="btn btn-success btn-xs"> Volver</button>
+                <button class="btn btn-dark btn-xs">&laquo;  Volver</button>
             </a>
 
             <ul class="list-group my-2">
@@ -92,8 +92,8 @@
                 </div>
             </div>
 
-            <a th:href="@{'/ver/' + ${ficha.cliente.id}}"
-               class="btn btn-light btn-xs">&laquo; volver</a>
+            <a th:href="@{'/cliente/ver/' + ${ficha.cliente.id}}"
+               class="btn btn-dark btn-xs">&laquo; volver</a>
 
         </div>
     </div>

@@ -7,7 +7,11 @@
 
 	<div class="container py-4">
 		<div class="card oscuro">
-			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-header" > 
+				<div class="row"><div class="col col-2" th:text="${titulo}"></div><div class="col">   <a th:href="@{'/cliente/listar'}">
+					<button class="btn btn-dark btn-xs">&laquo;  Volver</button>
+				</a></div></div>
+			</div>
 			<div class="card-body">
 <!--				<h4 class="card-title">-->
 <!--					<a class="btn btn-light"-->
