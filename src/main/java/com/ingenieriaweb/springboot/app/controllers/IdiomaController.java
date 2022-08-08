@@ -90,7 +90,7 @@ public class IdiomaController {
 	public String guardar(@Valid Idioma idioma, BindingResult result, Model model, RedirectAttributes flash, SessionStatus status) {
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Idioma");
-			return "form";
+			return "idioma/formIdiom";
 		}
 		
 		clienteService.saveIdioma(idioma);

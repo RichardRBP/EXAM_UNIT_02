@@ -81,9 +81,10 @@ public class GeneroController {
 	
 	@RequestMapping(value = "/formGen", method = RequestMethod.POST)
 	public String guardar(@Valid Genero2 genero, BindingResult result, Model model, RedirectAttributes flash, SessionStatus status) {
-		if (result.hasErrors()) {
+	 
+		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Genero");
-			return "form";
+			return "genero/formGen";
 		}
 
 		clienteService.saveGenero(genero);

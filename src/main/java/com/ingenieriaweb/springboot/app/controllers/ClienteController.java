@@ -149,7 +149,11 @@ public class ClienteController {
 
 			cliente.setFoto(uniqueFilename);
 		}
-
+		if(result.hasErrors()) {
+			model.addAttribute("titulo", "Formulario de Clientte");
+			model.addAttribute("urbanizaciones", clienteService.findAllU());
+			return "cliente/form";
+		}
 		 
 		 
 		clienteService.save(cliente);
