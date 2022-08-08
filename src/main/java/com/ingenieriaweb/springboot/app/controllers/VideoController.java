@@ -162,6 +162,9 @@ public class VideoController {
 		}
 		model.put("video", video);
 		model.put("titulo", "Editar Video");
+		model.put("generos", videoService.findAllG());
+		model.put("idiomas", videoService.findAllI());
+		model.put("formatos", videoService.findAllF());
 		return "video/form";
 	}
 

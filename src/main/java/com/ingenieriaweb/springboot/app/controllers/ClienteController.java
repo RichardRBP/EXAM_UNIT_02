@@ -118,7 +118,7 @@ public class ClienteController {
 		}
 		model.put("cliente", cliente);
 		model.put("titulo", "Editar Cliente");
-		//model.put("urbanizaciones", clienteService.findAllU(id);
+		model.put("urbanizaciones", clienteService.findAllU());
 		return "cliente/form"; 
 
 	}
