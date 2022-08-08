@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
+<head th:replace="layout/base :: head"></head>
 <body>
 
-	<header th:replace="layout/layout :: header"></header>
+	<header th:replace="layout/base :: header"></header>
 
 	<div class="container py-4">
-		<div class="card bg-light">
+		<div class="card oscuro">
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 <!--				<h4 class="card-title">-->
@@ -94,8 +94,8 @@
 					<table th:replace="ficha/plantilla-items :: itemsFicha"></table>
 
 					<table id="cargarItemVideos"
-						class="table table-sm table-striped table-hover">
-						<thead>
+						class="table table-bordered table-striped my-4">
+						<thead class="thead-dark">
 							<tr>
 								<th>Título</th>
 								<th>Año</th>
@@ -104,8 +104,8 @@
 								<th>Total</th>
 								<th>Eliminar</th>
 							</tr>
-						</thead>
-						<tbody>
+						</thead >
+						<tbody class="oscuro">
 						</tbody>
 					</table>
 					<h5>Total <span class="badge badge-secondary" id="gran_total">0</span></h5>
@@ -123,7 +123,7 @@
 		</div>
 	</div>
 
-	<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/base :: footer"></footer>
 	<script th:replace="ficha/js/autocomplete-videos :: javascript"></script>
 
 </body>

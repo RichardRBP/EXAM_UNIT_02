@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
+<head th:replace="layout/base :: head"></head>
 <body>
 
-	<header th:replace="layout/layout :: header"></header>
+	<header th:replace="layout/base :: header"></header>
 
 	<div class="container py-4">
 
-		<div class="card bg-light">
-			<div class="card-header" th:text="${titulo}"></div>
-			<div class="card-body">
+		<div class="card oscuro">
+			<div class="card-header" th:text="${titulo}" style="color: white;"></div>
+			<div class="card-body" style="color: white;">
 
-				<h4 class="card-title">
+				<h4 class="card-title" style="color: white;">
 					<a th:href="@{/urbanizacion/form}" class="btn btn-primary">crear Urbanizacion</a>
 				</h4>
 
 				<table class="table table-striped">
-					<thead>
+					<thead style="color: white;">
 						<tr>
 							<th>id</th>
 							<th>nombre</th>
@@ -26,8 +26,8 @@
 							<th>eliminar</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr th:each="item: ${urbanizaciones}">
+					<tbody style="color: white;">
+						<tr th:each="item: ${urbanizaciones}" style="color: white;">
 							<td th:text="${item.id}"></td>
 							<td th:text="${item.nombre}"></td>
 							<td th:text="${item.distrito}"></td>
@@ -39,14 +39,20 @@
 								onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
 						</tr>
 					</tbody>
-
 				</table>
-				<nav th:replace="paginator-nav :: paginator"></nav>
+				<div class="row">
+					<div class="col-4" style="align-content: center;">
+						<nav></nav>
+					</div>
+					<div class="col-4" style="align-content: center;">
+						<nav th:replace="paginator-nav :: paginator"></nav>
+					</div>
+				</div>
 			</div>
 		</div>
 
 	</div>
 
-	<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/base :: footer"></footer>
 </body>
 </html>
