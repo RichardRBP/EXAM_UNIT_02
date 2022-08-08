@@ -14,29 +14,31 @@
 			<div class="card-body" style="color: white;">
 
 				<h4 class="card-title" style="color: white;">
-					<a th:href="@{/genero/formGen}" class="btn btn-success btn-xs">Crear
-						Generos</a>
+					<a th:href="@{/idioma/formIdiom}" class="btn btn-success btn-xs">Crear
+						Idiomas</a>
 				</h4>
 
 				<table class="table table-striped">
 					<thead style="color: white;">
 						<tr>
-							<th>id</th>
-							<th>nombre</th>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Subtitulos</th>
 							<th>Accion Editar</th>
 							<th>Accion Eliminar</th>
 						</tr>
 					</thead>
 					<tbody style="color: white;">
-						<tr th:each="genero: ${generos}" style="color: white;">
-							<td th:text="${genero.id}"></td>
-							<td th:text="${genero.genero}"></td>
+						<tr th:each="idioma: ${idiomas}" style="color: white;">
+							<td th:text="${idioma.id}"></td>
+							<td th:text="${idioma.idioma}"></td>
+							<td th:text="${idioma.subtitulos}"></td>
 							<td><a class="btn btn-primary btn-xs"
-								th:href="@{/genero/formGen/} + ${genero.id}" th:text="'editar'"></a></td>
+								th:href="@{/idioma/formIdiom/} + ${idioma.id}" th:text="'editar'"></a></td>
 							<td><a class="btn btn-danger btn-xs"
-								th:href="@{/genero/eliminarGen/} + ${genero.id}"
+								th:href="@{/idioma/eliminarIdiom/} + ${idioma.id}"
 								th:text="'eliminar'"
-								onclick="return confirm('Estás seguro que desea eliminar el g�nero?');"></a></td>
+								onclick="return confirm('Estás seguro que desea eliminar el Idioma?');"></a></td>
 						</tr>
 					</tbody>
 				</table>

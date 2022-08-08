@@ -49,11 +49,11 @@ public class IdiomaController {
 
 		Page<Idioma> idiomas = clienteService.findAllI(pageRequest);
 
-		PageRender<Idioma> pageRender = new PageRender<Idioma>("/genero/listarIdiom", idiomas);
+		PageRender<Idioma> pageRender = new PageRender<Idioma>("/idioma/listarIdiom", idiomas);
 		model.addAttribute("titulo", "Listado de idiomas");
-		model.addAttribute("generos", idiomas);
+		model.addAttribute("idiomas", idiomas);
 		model.addAttribute("page", pageRender);
-		return "idioma/idiomaindex";
+		return "idioma/listarIdiom";
 	}
 	
 	@RequestMapping(value = "/formIdiom")
@@ -100,7 +100,7 @@ public class IdiomaController {
 	}
 	
 	
-	@RequestMapping(value="/eliminarIdioma/{id}")
+	@RequestMapping(value="/eliminarIdiom/{id}")
 	public String eliminar(@PathVariable(value="id") Long id, RedirectAttributes flash) {
 		if(id > 0) {
 			clienteService.deleteI(id);
