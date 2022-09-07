@@ -1,2 +1,2 @@
 # EXAM_UNIT_02
-To destroy the exam 02 of Marcelino 😎💪
+Proyecto en Spring Boot sobre venta de peliculas online 😎💪
